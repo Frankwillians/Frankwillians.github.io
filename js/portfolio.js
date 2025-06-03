@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Filtros de portfólio
     const filterButtons = document.querySelectorAll('.filter-btn');
     const projectItems = document.querySelectorAll('.project-item');
-    
+
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             // Remove active class de todos os botões do mesmo grupo
