@@ -11,27 +11,28 @@ class GitHubAPI {
     }
     
     // Validar token e acesso ao repositório
-    async validateToken(token, repo) {
-        try {
-            const response = await fetch(`${this.apiBase}/repos/${repo}`, {
-                headers: {
-                    'Authorization': `token ${token}`,
-                    'Accept': 'application/vnd.github.v3+json'
-                }
-            });
-            
-            if (response.status === 200) {
-                const repoData = await response.json();
-                // Verificar se o usuário tem permissão de escrita
-                return true;
+    static async validateToken(token, repo) {
+    try {
+        const response = await fetch(`https://api.github.com/repos/${repo}`, {
+            headers: {
+                Authorization: `token ${token}`
             }
-            
-            return false;
-        } catch (error) {
-            console.error('Erro ao validar token:', error);
+        });
+
+        if (!response.ok) {
+            console.error('Token inválido ou repositório não encontrado.');
             return false;
         }
+
+        // Considera o token válido se conseguiu acessar o repositório
+        // Ideal para uso quando o dono do repositório está autenticado
+        return true;
+
+    } catch (error) {
+        console.error('Erro ao validar token:', error);
+        return false;
     }
+}
     
     // Obter conteúdo do arquivo JSON
     async getFileContent(path) {
