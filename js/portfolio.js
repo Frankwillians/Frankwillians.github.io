@@ -1,169 +1,321 @@
-// JavaScript específico para a página de portfólio
+/**
+ * Script para carregar dinamicamente os itens do portfólio
+ * Este arquivo deve ser incluído na página de portfólio do site principal
+ */
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Filtros de portfólio
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectItems = document.querySelectorAll('.project-item');
+document.addEventListener('DOMContentLoaded', () => {
+    // Carregar dados do portfólio
+    loadPortfolioData();
+});
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class de todos os botões do mesmo grupo
-            const parentGroup = this.closest('.filter-group');
-            parentGroup.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            // Adiciona active class ao botão clicado
-            this.classList.add('active');
-            
-            // Obtém os filtros ativos de cada grupo
-            const activeFilters = {};
-            document.querySelectorAll('.filter-group').forEach(group => {
-                const activeButton = group.querySelector('.filter-btn.active');
-                const filterType = activeButton.closest('.filter-group').querySelector('h3').textContent.replace(':', '').trim().toLowerCase();
-                activeFilters[filterType] = activeButton.getAttribute('data-filter');
-            });
-            
-            // Filtra os projetos
-            projectItems.forEach(item => {
-                let shouldShow = true;
-                
-                // Verifica cada filtro ativo
-                Object.keys(activeFilters).forEach(filterType => {
-                    const filterValue = activeFilters[filterType];
-                    if (filterValue !== 'all') {
-                        if (!item.classList.contains(filterValue)) {
-                            shouldShow = false;
-                        }
-                    }
-                });
-                
-                if (shouldShow) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 50);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
+/**
+ * Carrega os dados do portfólio a partir do arquivo JSON
+ */
+async function loadPortfolioData() {
+    try {
+        // Mostrar indicador de carregamento
+        showLoading();
+        
+        // Carregar arquivo JSON
+        const response = await fetch('/data/portfolio_data.json');
+        
+        if (!response.ok) {
+            throw new Error(`Erro ao carregar dados: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        
+        // Renderizar itens do portfólio
+        renderPortfolioItems(data);
+        
+        // Esconder indicador de carregamento
+        hideLoading();
+    } catch (error) {
+        console.error('Erro ao carregar dados do portfólio:', error);
+        showError('Não foi possível carregar os itens do portfólio. Por favor, tente novamente mais tarde.');
+        hideLoading();
+    }
+}
+
+/**
+ * Renderiza os itens do portfólio na página
+ * @param {Object} data - Dados do portfólio
+ */
+function renderPortfolioItems(data) {
+    // Verificar se há itens
+    if (!data || !data.items || data.items.length === 0) {
+        showEmptyState();
+        return;
+    }
+    
+    // Obter container do portfólio
+    const portfolioContainer = document.getElementById('portfolio-items');
+    
+    if (!portfolioContainer) {
+        console.error('Container de portfólio não encontrado');
+        return;
+    }
+    
+    // Limpar conteúdo existente
+    portfolioContainer.innerHTML = '';
+    
+    // Ordenar itens por data (mais recente primeiro)
+    const sortedItems = [...data.items].sort((a, b) => {
+        return new Date(b.date_added) - new Date(a.date_added);
     });
     
-    // Modal de detalhes do projeto
-    const projectViewButtons = document.querySelectorAll('.project-view-btn');
-    
-    projectViewButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const projectId = this.getAttribute('data-project');
-            const modal = document.getElementById(`modal-${projectId}`);
-            
-            if (modal) {
-                modal.style.display = 'block';
-                document.body.style.overflow = 'hidden';
-                
-                // Fecha o modal ao clicar no X
-                const closeButton = modal.querySelector('.modal-close');
-                closeButton.addEventListener('click', function() {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                });
-                
-                // Fecha o modal ao clicar fora do conteúdo
-                modal.addEventListener('click', function(e) {
-                    if (e.target === modal) {
-                        modal.style.display = 'none';
-                        document.body.style.overflow = 'auto';
-                    }
-                });
-                
-                // Navegação entre thumbnails
-                const thumbnails = modal.querySelectorAll('.thumbnail-images img');
-                const mainImage = modal.querySelector('.main-image img');
-                
-                thumbnails.forEach(thumb => {
-                    thumb.addEventListener('click', function() {
-                        // Remove classe active de todas as thumbnails
-                        thumbnails.forEach(t => t.classList.remove('active'));
-                        
-                        // Adiciona classe active à thumbnail clicada
-                        this.classList.add('active');
-                        
-                        // Atualiza a imagem principal
-                        mainImage.src = this.src;
-                        mainImage.alt = this.alt;
-                    });
-                });
-            } else {
-                console.error(`Modal para o projeto ${projectId} não encontrado.`);
-            }
-        });
+    // Criar elementos para cada item
+    sortedItems.forEach(item => {
+        // Criar elemento do item
+        const itemElement = createPortfolioItem(item);
+        
+        // Adicionar ao container
+        portfolioContainer.appendChild(itemElement);
     });
     
-    // Cria modais dinamicamente para projetos que não têm modal específico
-    document.querySelectorAll('.project-view-btn').forEach(button => {
-        const projectId = button.getAttribute('data-project');
-        if (!document.getElementById(`modal-${projectId}`)) {
-            const projectCard = button.closest('.project-card');
-            const projectTitle = projectCard.querySelector('.project-info h3').textContent;
-            const projectDesc = projectCard.querySelector('.project-info p').textContent;
-            const projectImage = projectCard.querySelector('.project-image img').src;
-            
-            // Cria o modal
-            const modalHTML = `
-            <div class="project-modal" id="modal-${projectId}">
-                <div class="modal-content">
-                    <span class="modal-close">&times;</span>
-                    <div class="modal-body">
-                        <div class="modal-gallery">
-                            <div class="main-image">
-                                <img src="${projectImage}" alt="${projectTitle}">
-                            </div>
-                            <div class="thumbnail-images">
-                                <img src="${projectImage}" alt="${projectTitle}" class="active">
-                            </div>
-                        </div>
-                        <div class="modal-info">
-                            <h2>${projectTitle}</h2>
-                            <p class="modal-subtitle">Action Figure</p>
-                            
-                            <div class="modal-description">
-                                <p>${projectDesc}</p>
-                                <p>Esta action figure foi criada com atenção aos detalhes e acabamento artístico premium, destacando as características únicas do personagem.</p>
-                            </div>
-                            
-                            <div class="modal-specs">
-                                <div class="spec-item">
-                                    <span class="spec-label">Tecnologia:</span>
-                                    <span class="spec-value">${projectId.includes('resina') ? 'Impressão em Resina' : 'Impressão FDM (Filamento)'}</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Material:</span>
-                                    <span class="spec-value">${projectId.includes('resina') ? 'Resina Fotossensível' : 'PLA'}</span>
-                                </div>
-                                <div class="spec-item">
-                                    <span class="spec-label">Acabamento:</span>
-                                    <span class="spec-value">Pintura manual com técnicas profissionais</span>
-                                </div>
-                            </div>
-                            
-                            <div class="modal-cta">
-                                <a href="contato.html" class="btn btn-primary">Solicitar Orçamento Similar</a>
-                            </div>
-                        </div>
-                    </div>
+    // Inicializar filtros e modal de visualização
+    initializeFilters();
+    initializeViewModal();
+}
+
+/**
+ * Cria um elemento HTML para um item do portfólio
+ * @param {Object} item - Item do portfólio
+ * @returns {HTMLElement} Elemento do item
+ */
+function createPortfolioItem(item) {
+    // Criar elemento principal
+    const itemElement = document.createElement('div');
+    itemElement.className = 'portfolio-item';
+    itemElement.setAttribute('data-category', item.category.toLowerCase());
+    itemElement.setAttribute('data-id', item.id);
+    
+    // Obter primeira imagem como thumbnail
+    const thumbnailUrl = item.images && item.images.length > 0 
+        ? `/${item.images[0].thumbnail}`
+        : '/images/site/placeholder.jpg';
+    
+    // Criar HTML interno
+    itemElement.innerHTML = `
+        <div class="portfolio-item-image">
+            <img src="${thumbnailUrl}" alt="${item.title}" loading="lazy">
+            <div class="portfolio-item-overlay">
+                <div class="portfolio-item-actions">
+                    <button class="view-item" data-id="${item.id}">Ver Detalhes</button>
                 </div>
-            </div>`;
+            </div>
+        </div>
+        <div class="portfolio-item-info">
+            <h3>${item.title}</h3>
+            <span class="category">${item.category}</span>
+        </div>
+    `;
+    
+    // Adicionar event listener para o botão de visualização
+    const viewButton = itemElement.querySelector('.view-item');
+    if (viewButton) {
+        viewButton.addEventListener('click', () => {
+            showItemDetails(item);
+        });
+    }
+    
+    return itemElement;
+}
+
+/**
+ * Inicializa os filtros de categoria
+ */
+function initializeFilters() {
+    const filterButtons = document.querySelectorAll('.portfolio-filter button');
+    
+    if (!filterButtons.length) return;
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remover classe ativa de todos os botões
+            filterButtons.forEach(btn => btn.classList.remove('active'));
             
-            // Adiciona o modal ao final do body
-            document.body.insertAdjacentHTML('beforeend', modalHTML);
+            // Adicionar classe ativa ao botão clicado
+            button.classList.add('active');
+            
+            // Obter categoria selecionada
+            const category = button.getAttribute('data-filter');
+            
+            // Filtrar itens
+            filterItems(category);
+        });
+    });
+}
+
+/**
+ * Filtra os itens do portfólio por categoria
+ * @param {string} category - Categoria para filtrar
+ */
+function filterItems(category) {
+    const items = document.querySelectorAll('.portfolio-item');
+    
+    items.forEach(item => {
+        if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
         }
     });
-});
+}
+
+/**
+ * Inicializa o modal de visualização de detalhes
+ */
+function initializeViewModal() {
+    // Verificar se o modal já existe
+    let modal = document.getElementById('portfolio-modal');
+    
+    // Se não existir, criar
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'portfolio-modal';
+        modal.className = 'modal';
+        
+        modal.innerHTML = `
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-body">
+                    <div class="item-details">
+                        <h2 id="modal-title"></h2>
+                        <div class="item-category" id="modal-category"></div>
+                        <div class="item-description" id="modal-description"></div>
+                    </div>
+                    <div class="item-gallery">
+                        <div class="main-image">
+                            <img id="modal-main-image" src="" alt="">
+                        </div>
+                        <div class="image-thumbnails" id="modal-thumbnails"></div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(modal);
+        
+        // Adicionar event listener para fechar o modal
+        const closeButton = modal.querySelector('.close-modal');
+        if (closeButton) {
+            closeButton.addEventListener('click', () => {
+                modal.style.display = 'none';
+            });
+        }
+        
+        // Fechar modal ao clicar fora do conteúdo
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    }
+}
+
+/**
+ * Exibe os detalhes de um item no modal
+ * @param {Object} item - Item do portfólio
+ */
+function showItemDetails(item) {
+    const modal = document.getElementById('portfolio-modal');
+    
+    if (!modal) return;
+    
+    // Preencher dados do item
+    document.getElementById('modal-title').textContent = item.title;
+    document.getElementById('modal-category').textContent = item.category;
+    document.getElementById('modal-description').textContent = item.description;
+    
+    // Preencher imagem principal
+    const mainImage = document.getElementById('modal-main-image');
+    if (mainImage && item.images && item.images.length > 0) {
+        mainImage.src = `/${item.images[0].filename}`;
+        mainImage.alt = item.title;
+    }
+    
+    // Preencher miniaturas
+    const thumbnailsContainer = document.getElementById('modal-thumbnails');
+    if (thumbnailsContainer && item.images && item.images.length > 1) {
+        thumbnailsContainer.innerHTML = '';
+        
+        item.images.forEach((image, index) => {
+            const thumbnail = document.createElement('div');
+            thumbnail.className = 'thumbnail';
+            if (index === 0) thumbnail.classList.add('active');
+            
+            thumbnail.innerHTML = `<img src="/${image.thumbnail}" alt="${image.alt || item.title}">`;
+            
+            // Adicionar event listener para trocar imagem principal
+            thumbnail.addEventListener('click', () => {
+                // Atualizar imagem principal
+                mainImage.src = `/${image.filename}`;
+                mainImage.alt = image.alt || item.title;
+                
+                // Atualizar classe ativa
+                document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
+                thumbnail.classList.add('active');
+            });
+            
+            thumbnailsContainer.appendChild(thumbnail);
+        });
+    }
+    
+    // Exibir modal
+    modal.style.display = 'flex';
+}
+
+/**
+ * Exibe estado vazio quando não há itens
+ */
+function showEmptyState() {
+    const portfolioContainer = document.getElementById('portfolio-items');
+    
+    if (!portfolioContainer) return;
+    
+    portfolioContainer.innerHTML = `
+        <div class="empty-state">
+            <p>Nenhum item encontrado no portfólio.</p>
+        </div>
+    `;
+}
+
+/**
+ * Exibe mensagem de erro
+ * @param {string} message - Mensagem de erro
+ */
+function showError(message) {
+    const portfolioContainer = document.getElementById('portfolio-items');
+    
+    if (!portfolioContainer) return;
+    
+    portfolioContainer.innerHTML = `
+        <div class="error-state">
+            <p>${message}</p>
+        </div>
+    `;
+}
+
+/**
+ * Exibe indicador de carregamento
+ */
+function showLoading() {
+    const portfolioContainer = document.getElementById('portfolio-items');
+    
+    if (!portfolioContainer) return;
+    
+    portfolioContainer.innerHTML = `
+        <div class="loading-state">
+            <div class="spinner"></div>
+            <p>Carregando itens do portfólio...</p>
+        </div>
+    `;
+}
+
+/**
+ * Esconde indicador de carregamento
+ */
+function hideLoading() {
+    // O loading será substituído pelo conteúdo quando os dados forem carregados
+}

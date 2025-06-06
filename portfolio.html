@@ -10,6 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./portfolio_styles.css">
+    <script src="/js/portfolio.js" defer></script>
 </head>
 <body>
     <!-- Preloader -->
@@ -47,6 +49,18 @@
             </div>
         </div>
     </header>
+    
+    <div class="portfolio-section">
+    <div class="portfolio-filter">
+        <button class="active" data-filter="all">Todos</button>
+        <button data-filter="resina">Resina</button>
+        <button data-filter="fdm">FDM</button>
+    </div>
+    
+    <div id="portfolio-items">
+        <!-- Os itens serão carregados dinamicamente aqui -->
+    </div>
+    </div>
 
     <!-- Portfolio Hero -->
     <section class="portfolio-hero">
