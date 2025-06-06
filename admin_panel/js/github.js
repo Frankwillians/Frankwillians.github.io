@@ -23,7 +23,7 @@ class GitHubAPI {
             if (response.status === 200) {
                 const repoData = await response.json();
                 // Verificar se o usuário tem permissão de escrita
-                return repoData.permissions && repoData.permissions.push;
+                return response.status === 200;
             }
             
             return false;
