@@ -11,7 +11,7 @@ class GitHubAPI {
     }
     
     // Validar token e acesso ao repositório
-    async validateToken(token, repo) {
+    static async validateToken(token, repo) {
         try {
             const response = await fetch(`${this.apiBase}/repos/${repo}`, {
                 headers: {
@@ -34,9 +34,9 @@ class GitHubAPI {
     }
     
     // Obter conteúdo do arquivo JSON
-    async getFileContent(path) {
-        const token = Auth.getToken();
-        const repo = Auth.getRepo();
+    static async getFileContent(path) {
+        const token = AuthInstance.getToken();
+        const repo = AuthInstance.getRepo();
         
         if (!token || !repo) {
             throw new Error('Usuário não autenticado');
@@ -72,9 +72,9 @@ class GitHubAPI {
     }
     
     // Salvar conteúdo no arquivo JSON
-    async saveFile(path, content, sha = null) {
-        const token = Auth.getToken();
-        const repo = Auth.getRepo();
+    static async saveFile(path, content, sha = null) {
+        const token = AuthInstance.getToken();
+        const repo = AuthInstance.getRepo();
         
         if (!token || !repo) {
             throw new Error('Usuário não autenticado');
@@ -106,100 +106,12 @@ class GitHubAPI {
                 return await response.json();
             }
             
-            const errorData = await response.json();
-            throw new Error(`Erro ao salvar arquivo: ${response.status} - ${JSON.stringify(errorData)}`);
+            throw new Error(`Erro ao salvar arquivo: ${response.status}`);
         } catch (error) {
             console.error(`Erro ao salvar arquivo ${path}:`, error);
             throw error;
         }
     }
-    
-    // Upload de imagem para o repositório
-    async uploadImage(filename, imageData) {
-        const path = this.imageDir + filename;
-        
-        // Remover cabeçalho da string base64 se existir
-        const base64Data = imageData.replace(/^data:image\/\w+;base64,/, '');
-        
-        try {
-            return await this.saveFile(path, base64Data, null);
-        } catch (error) {
-            console.error(`Erro ao fazer upload da imagem ${filename}:`, error);
-            throw error;
-        }
-    }
-    
-    // Excluir arquivo do repositório
-    async deleteFile(path) {
-        const token = Auth.getToken();
-        const repo = Auth.getRepo();
-        
-        if (!token || !repo) {
-            throw new Error('Usuário não autenticado');
-        }
-        
-        try {
-            // Primeiro precisamos obter o SHA do arquivo
-            const { sha } = await this.getFileContent(path);
-            
-            if (!sha) {
-                throw new Error(`Arquivo ${path} não encontrado`);
-            }
-            
-            const response = await fetch(`${this.apiBase}/repos/${repo}/contents/${path}`, {
-                method: 'DELETE',
-                headers: {
-                    'Authorization': `token ${token}`,
-                    'Accept': 'application/vnd.github.v3+json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    message: `Exclusão do arquivo ${path}`,
-                    sha: sha,
-                    branch: 'main' // ou 'master', dependendo do repositório
-                })
-            });
-            
-            if (response.status === 200) {
-                return true;
-            }
-            
-            const errorData = await response.json();
-            throw new Error(`Erro ao excluir arquivo: ${response.status} - ${JSON.stringify(errorData)}`);
-        } catch (error) {
-            console.error(`Erro ao excluir arquivo ${path}:`, error);
-            throw error;
-        }
-    }
-    
-    // Verificar se o arquivo de dados existe, se não, criar um template
-    async ensureDataFileExists() {
-        try {
-            const { content } = await this.getFileContent(this.dataFile);
-            
-            if (!content) {
-                // Criar arquivo de dados inicial
-                const initialData = {
-                    last_updated: new Date().toISOString(),
-                    items: []
-                };
-                
-                await this.saveFile(
-                    this.dataFile, 
-                    JSON.stringify(initialData, null, 2),
-                    null
-                );
-                
-                return initialData;
-            }
-            
-            return JSON.parse(content);
-        } catch (error) {
-            console.error('Erro ao verificar arquivo de dados:', error);
-            throw error;
-        }
-    }
 }
 
-// Exportar para uso global
-window.GitHubAPI = new GitHubAPI();
+

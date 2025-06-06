@@ -81,7 +81,7 @@ class Auth {
                 this.showAdminPanel();
                 
                 // Carregar dados iniciais
-                Portfolio.loadData();
+                PortfolioInstance.loadData();
             } else {
                 this.showError('Token inválido ou sem permissões necessárias.');
             }
@@ -156,4 +156,6 @@ class Auth {
 }
 
 // Exportar para uso global
-window.Auth = new Auth();
+window.Auth = Auth;
+
+
