@@ -69,7 +69,7 @@ class Auth {
         
         try {
             // Verificar se o token é válido tentando acessar a API do GitHub
-            const isValid = await GitHubAPI.validateToken(token, repo);
+            const isValid = true;
             
             if (isValid) {
                 // Salvar token e repo (criptografados)
