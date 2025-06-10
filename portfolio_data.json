@@ -1,7 +1,7 @@
 {
   "items": [
     {
-      "id": "item_1749565641741",
+      "id": "item_1749573600670",
       "title": "Ravena",
       "description": "🦇✨ “A escuridão é minha aliada!” ✨🦇\n\nApresentamos essa Action Figure exclusiva da Ravena, diretamente do universo de Os Jovens Titãs, produzida com todo o cuidado pela DarkStar3D_Studio! Essa peça de 25 cm de altura, impressa em PLA e pintada à mão, traz à vida cada detalhe sombrio e místico da poderosa feiticeira.\n\nDesde sua icônica capa esvoaçante até as joias encantadas, cada detalhe foi trabalhado com máxima precisão para um acabamento impressionante!",
       "category": "FDM",
@@ -10,24 +10,124 @@
       "altura": "25cm",
       "acabamento": "pintura manual",
       "base": "",
-      "date_added": "2025-06-10T14:27:21.741Z",
+      "date_added": "2025-06-10T16:40:00.670Z",
       "images": [
         {
-          "data": "https://i.imgur.com/bP5ZtzK.jpeg",
+          "data": "https://i.imgur.com/S01qz4r.jpeg",
           "name": "WhatsApp Image 2025-04-01 at 23.43.35 (2).jpeg"
         },
         {
-          "data": "https://i.imgur.com/ThR7D8L.jpeg",
+          "data": "https://i.imgur.com/TD8GDIn.jpeg",
           "name": "WhatsApp Image 2025-04-01 at 23.43.35 (1).jpeg"
         },
         {
-          "data": "https://i.imgur.com/tCeVZjX.jpeg",
+          "data": "https://i.imgur.com/c6zXpKv.jpeg",
           "name": "WhatsApp Image 2025-04-01 at 23.43.35.jpeg"
+        }
+      ],
+      "thumbnailIndex": 2,
+      "featured": false
+    },
+    {
+      "id": "item_1749573633759",
+      "title": "Kratos",
+      "description": "Em God of War, Kratos é um semideus, filho de Zeus e de uma mulher mortal. A trama explora a sua jornada de vingança contra os deuses, especialmente Zeus, que o trai no início da saga. Zeus é o rei dos deuses e um oponente poderoso, com quem Kratos tem uma relação complexa marcada por ódio e vingança. \n",
+      "category": "Resina",
+      "tecnologia": "sla",
+      "material": "resina",
+      "altura": "40cm",
+      "acabamento": "pintura manual",
+      "base": "fdm",
+      "date_added": "2025-06-10T16:40:33.759Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/QZCheFW.jpeg",
+          "name": "ZEZ Studios - Kratos + Bust + Poster - May 2024.jpg"
+        }
+      ],
+      "thumbnailIndex": 0,
+      "featured": false
+    },
+    {
+      "id": "item_1749573824726",
+      "title": "Pyramid Head",
+      "description": "“Nas trevas, o pesadelo ganha forma… ⚔️💀”\n\nDiretamente das profundezas de Silent Hill, essa imponente representação do Pyramid Head ganha vida com o estilo sombrio da DarkStar3D_Studio. Cada detalhe foi cuidadosamente pintado à mão, trazendo textura, profundidade e realismo à peça — do sangue escorrendo à atmosfera enferrujada e angustiante. As mãos emergindo das grades completam essa cena aterradora e memorável.",
+      "category": "FDM",
+      "tecnologia": "FDM",
+      "material": "PLA",
+      "altura": "25cm",
+      "acabamento": "pintura manual",
+      "base": "",
+      "date_added": "2025-06-10T16:43:44.726Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/ZSPWLg5.png",
+          "name": "pyramid.png"
+        },
+        {
+          "data": "https://i.imgur.com/0jpZjAM.png",
+          "name": "pyramid2.png"
+        }
+      ],
+      "thumbnailIndex": 1,
+      "featured": false
+    },
+    {
+      "id": "item_1749574093903",
+      "title": "Singed",
+      "description": "🧪💀 \"Somente o louco sobrevive!\" 💀🧪\n\nApresentamos essa Action Figure exclusiva do Singed, diretamente do universo de League of Legends, produzida com todo o cuidado pela DarkStar3D_Studio! Essa peça de 14,5 cm de altura foi impressa em filamento PLA e pintada à mão, trazendo cada detalhe icônico do químico louco de Zaun à vida. Desde a armadura desgastada até sua icônica garrafa de veneno, tudo foi trabalhado com máxima precisão para um acabamento impressionante!",
+      "category": "FDM",
+      "tecnologia": "FDM",
+      "material": "PLA",
+      "altura": "14,5cm",
+      "acabamento": "pintura manual",
+      "base": "",
+      "date_added": "2025-06-10T16:48:13.903Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/Dd2hiB0.png",
+          "name": "Captura de tela 2025-06-10 134428.png"
+        },
+        {
+          "data": "https://i.imgur.com/yHEBYkU.png",
+          "name": "Captura de tela 2025-06-10 134451.png"
+        },
+        {
+          "data": "https://i.imgur.com/g19yIg8.png",
+          "name": "singed.png"
+        }
+      ],
+      "thumbnailIndex": 2,
+      "featured": false
+    },
+    {
+      "id": "item_1749574181878",
+      "title": "Jill Valentine",
+      "description": "Jill Valentine é uma personagem icónica da série Resident Evil, conhecida pela sua coragem, habilidades de combate e dedicação na luta contra a Umbrella Corporation. Ela é uma ex-membro da STARS (Special Tactics And Rescue Service) e uma cofundadora da BSAA (Bioterrorism Security Assessment Alliance), trabalhando para proteger a humanidade de ameaças bioterroristas. ",
+      "category": "FDM",
+      "tecnologia": "FDM",
+      "material": "PLA",
+      "altura": "17cm",
+      "acabamento": "pintura manual",
+      "base": "",
+      "date_added": "2025-06-10T16:49:41.878Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/zmhXA3L.png",
+          "name": "Captura de tela 2025-06-10 134533.png"
+        },
+        {
+          "data": "https://i.imgur.com/viSrVUH.png",
+          "name": "Captura de tela 2025-06-10 134613.png"
+        },
+        {
+          "data": "https://i.imgur.com/OopMilA.png",
+          "name": "jill.png"
         }
       ],
       "thumbnailIndex": 2,
       "featured": false
     }
   ],
-  "last_updated": "2025-06-10T14:57:09.652Z"
+  "last_updated": "2025-06-10T16:50:42.144Z"
 }
