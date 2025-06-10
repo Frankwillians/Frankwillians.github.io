@@ -71,7 +71,35 @@
       ],
       "thumbnailIndex": 1,
       "featured": false
+    },
+    {
+      "id": "item_1749574093903",
+      "title": "Singed",
+      "description": "🧪💀 \"Somente o louco sobrevive!\" 💀🧪\n\nApresentamos essa Action Figure exclusiva do Singed, diretamente do universo de League of Legends, produzida com todo o cuidado pela DarkStar3D_Studio! Essa peça de 14,5 cm de altura foi impressa em filamento PLA e pintada à mão, trazendo cada detalhe icônico do químico louco de Zaun à vida. Desde a armadura desgastada até sua icônica garrafa de veneno, tudo foi trabalhado com máxima precisão para um acabamento impressionante!",
+      "category": "FDM",
+      "tecnologia": "FDM",
+      "material": "PLA",
+      "altura": "14,5cm",
+      "acabamento": "pintura manual",
+      "base": "",
+      "date_added": "2025-06-10T16:48:13.903Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/Dd2hiB0.png",
+          "name": "Captura de tela 2025-06-10 134428.png"
+        },
+        {
+          "data": "https://i.imgur.com/yHEBYkU.png",
+          "name": "Captura de tela 2025-06-10 134451.png"
+        },
+        {
+          "data": "https://i.imgur.com/g19yIg8.png",
+          "name": "singed.png"
+        }
+      ],
+      "thumbnailIndex": 2,
+      "featured": false
     }
   ],
-  "last_updated": "2025-06-10T16:43:45.948Z"
+  "last_updated": "2025-06-10T16:48:14.869Z"
 }
