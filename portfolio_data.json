@@ -27,7 +27,27 @@
       ],
       "thumbnailIndex": 2,
       "featured": false
+    },
+    {
+      "id": "item_1749573630257",
+      "title": "Kratos",
+      "description": "Em God of War, Kratos é um semideus, filho de Zeus e de uma mulher mortal. A trama explora a sua jornada de vingança contra os deuses, especialmente Zeus, que o trai no início da saga. Zeus é o rei dos deuses e um oponente poderoso, com quem Kratos tem uma relação complexa marcada por ódio e vingança. \n",
+      "category": "Resina",
+      "tecnologia": "sla",
+      "material": "resina",
+      "altura": "40cm",
+      "acabamento": "pintura manual",
+      "base": "fdm",
+      "date_added": "2025-06-10T16:40:30.257Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/ORHL1RG.jpeg",
+          "name": "ZEZ Studios - Kratos + Bust + Poster - May 2024.jpg"
+        }
+      ],
+      "thumbnailIndex": 0,
+      "featured": false
     }
   ],
-  "last_updated": "2025-06-10T16:40:02.859Z"
+  "last_updated": "2025-06-10T16:40:31.174Z"
 }
