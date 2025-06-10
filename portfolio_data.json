@@ -29,7 +29,7 @@
       "featured": false
     },
     {
-      "id": "item_1749573630257",
+      "id": "item_1749573633759",
       "title": "Kratos",
       "description": "Em God of War, Kratos é um semideus, filho de Zeus e de uma mulher mortal. A trama explora a sua jornada de vingança contra os deuses, especialmente Zeus, que o trai no início da saga. Zeus é o rei dos deuses e um oponente poderoso, com quem Kratos tem uma relação complexa marcada por ódio e vingança. \n",
       "category": "Resina",
@@ -38,16 +38,40 @@
       "altura": "40cm",
       "acabamento": "pintura manual",
       "base": "fdm",
-      "date_added": "2025-06-10T16:40:30.257Z",
+      "date_added": "2025-06-10T16:40:33.759Z",
       "images": [
         {
-          "data": "https://i.imgur.com/ORHL1RG.jpeg",
+          "data": "https://i.imgur.com/QZCheFW.jpeg",
           "name": "ZEZ Studios - Kratos + Bust + Poster - May 2024.jpg"
         }
       ],
       "thumbnailIndex": 0,
       "featured": false
+    },
+    {
+      "id": "item_1749573824726",
+      "title": "Pyramid Head",
+      "description": "“Nas trevas, o pesadelo ganha forma… ⚔️💀”\n\nDiretamente das profundezas de Silent Hill, essa imponente representação do Pyramid Head ganha vida com o estilo sombrio da DarkStar3D_Studio. Cada detalhe foi cuidadosamente pintado à mão, trazendo textura, profundidade e realismo à peça — do sangue escorrendo à atmosfera enferrujada e angustiante. As mãos emergindo das grades completam essa cena aterradora e memorável.",
+      "category": "FDM",
+      "tecnologia": "FDM",
+      "material": "PLA",
+      "altura": "25cm",
+      "acabamento": "pintura manual",
+      "base": "",
+      "date_added": "2025-06-10T16:43:44.726Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/ZSPWLg5.png",
+          "name": "pyramid.png"
+        },
+        {
+          "data": "https://i.imgur.com/0jpZjAM.png",
+          "name": "pyramid2.png"
+        }
+      ],
+      "thumbnailIndex": 1,
+      "featured": false
     }
   ],
-  "last_updated": "2025-06-10T16:40:31.174Z"
+  "last_updated": "2025-06-10T16:43:45.948Z"
 }
