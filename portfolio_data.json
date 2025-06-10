@@ -23,12 +23,32 @@
         {
           "data": "https://i.imgur.com/33NloS2.jpeg",
           "name": "1749563328595_WhatsApp Image 2025-04-01 at 23.43.35.jpeg",
-          "thumbnail": "https://i.imgur.com/kKoLR6A.jpeg"
+          "thumbnail": "https://i.imgur.com/8X7Sc6U.jpeg"
         }
       ],
       "thumbnailIndex": 2,
       "featured": false
+    },
+    {
+      "id": "item_1749575319322",
+      "title": "Kratos",
+      "description": "gow",
+      "category": "Resina",
+      "tecnologia": "sla",
+      "material": "resina",
+      "altura": "40cm",
+      "acabamento": "pintura manual",
+      "base": "",
+      "date_added": "2025-06-10T17:08:39.322Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/y1RvVpU.jpeg",
+          "name": "ZEZ Studios - Kratos + Bust + Poster - May 2024.jpg"
+        }
+      ],
+      "thumbnailIndex": 0,
+      "featured": false
     }
   ],
-  "last_updated": "2025-06-10T17:08:01.293Z"
+  "last_updated": "2025-06-10T17:10:23.493Z"
 }
