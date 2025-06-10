@@ -222,28 +222,52 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Filtro
                 if (filter && filter !== 'all' && !tags.includes(filter)) return;
                 html += `
-                    <div class="gallery-card" data-idx="${idx}">
-                        <div class="gallery-img-area">
-                            <img src="${mainImg}" alt="${item.title || ''}" class="gallery-main-img" loading="lazy">
-                            <div class="gallery-img-overlay">
-                                <div class="gallery-img-details">VER DETALHES</div>
-                            </div>
-                        </div>
-                        <div class="gallery-card-info">
-                            <div class="gallery-title">${item.title || ''}</div>
-                            <div class="gallery-desc">${item.description || ''}</div>
-                            <div class="gallery-tags">
-                                ${tags.map(tag => `<span class="gallery-tag">${tag}</span>`).join('')}
-                            </div>
-                        </div>
-                    </div>
-                `;
+    <div class="gallery-card" data-idx="${idx}" style="cursor:pointer;">
+        <div class="gallery-img-area">
+            <img src="${mainImg}" alt="${item.title || ''}" class="gallery-main-img" loading="lazy">
+            <div class="gallery-img-overlay">
+                <div class="gallery-img-details">VER DETALHES</div>
+            </div>
+        </div>
+        <div class="gallery-card-info">
+            <div class="gallery-title">${item.title || ''}</div>
+            <div class="gallery-desc">${item.description || ''}</div>
+            <div class="gallery-tags">
+                ${tags.map(tag => `<span class="gallery-tag">${tag}</span>`).join('')}
+            </div>
+            <div class="gallery-details" style="display:none;margin-top:10px;">
+                ${item.tecnologia ? `<div><b>Tecnologia:</b> ${item.tecnologia}</div>` : ''}
+                ${item.material ? `<div><b>Material:</b> ${item.material}</div>` : ''}
+                ${item.altura ? `<div><b>Altura:</b> ${item.altura}</div>` : ''}
+                ${item.acabamento ? `<div><b>Acabamento:</b> ${item.acabamento}</div>` : ''}
+                ${item.base ? `<div><b>Base:</b> ${item.base}</div>` : ''}
+            </div>
+        </div>
+    </div>
+`;
             });
             portfolioItemsDiv.innerHTML = html;
 
-            // Evento para abrir modal
+            // Evento para abrir/fechar detalhes técnicos dentro do card
+            document.querySelectorAll('.card-details-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation(); // Não abre o modal!
+                    const details = this.parentElement.querySelector('.gallery-details');
+                    if (details.style.display === 'none' || !details.style.display) {
+                        details.style.display = 'block';
+                        this.textContent = 'Ocultar detalhes técnicos';
+                    } else {
+                        details.style.display = 'none';
+                        this.textContent = 'Ver detalhes técnicos';
+                    }
+                });
+            });
+
+            // Evento para abrir modal ao clicar no card (exceto no botão)
             document.querySelectorAll('.gallery-card').forEach(card => {
-                card.addEventListener('click', function() {
+                card.addEventListener('click', function(e) {
+                    // Se clicou no botão de detalhes, não abre o modal
+                    if (e.target.classList.contains('card-details-btn')) return;
                     const idx = this.getAttribute('data-idx');
                     showPortfolioModal(data.items[idx]);
                 });
