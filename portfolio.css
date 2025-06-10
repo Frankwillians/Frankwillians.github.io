@@ -480,8 +480,6 @@
 }
 
 .gallery-img-area {
-        font-family: 'Orbitron', 'Roboto', Arial, sans-serif;
-
     flex: 1 1 75%;
     height: 75%;
     width: 100%;
@@ -515,6 +513,19 @@
     min-height: 80px;
 }
 
+.gallery-title {
+    font-family: 'Orbitron', 'Roboto', Arial, sans-serif;
+    font-size: 1.18rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
 
 .gallery-tags {
     display: flex;
@@ -525,6 +536,18 @@
     margin-bottom: 0;
 }
 
+.gallery-tag {
+    background: linear-gradient(90deg, #8a2be2 60%, #00ff9d 100%);
+    color: #fff;
+    border-radius: 6px;
+    padding: 4px 12px;
+    font-size: 1em;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px #0003;
+    text-transform: uppercase;
+    font-family: 'Roboto', Arial, sans-serif;
+}
 
 /* Esconde a descrição */
 .gallery-desc {
@@ -536,7 +559,7 @@
     width: 100%;
     line-height: 1.3em;
     padding: 20px;
-    margin:  auto 0.7rem auto;
+    margin: 0 auto 0.7rem auto;
 }
 
 .gallery-img-overlay {
@@ -592,7 +615,6 @@
     flex-direction: column;
     align-items: flex-start;
     background: #181828;
-    
 }
 
 .gallery-title {
@@ -600,12 +622,7 @@
     font-size: 1.1rem;
     font-weight: 700;
     color: #fff;
-    margin-top: 15px;
     margin-bottom: 0.2rem;
-    margin-left: 30px;
-    text-align: left;
-  
-
 }
 .gallery-desc {
     font-size: 0.95rem;
@@ -617,10 +634,6 @@
     flex-wrap: wrap;
     gap: 0.4rem;
     margin-bottom: 0.2rem;
-    margin-left: auto;
-    padding-bottom: 20px ;
-    
-
 }
 .gallery-tag {
     background: #23234a;
@@ -630,7 +643,6 @@
     font-size: 0.85rem;
     font-family: 'Roboto', Arial, sans-serif;
     letter-spacing: 0.5px;
-    
 }
 .filter-btn {
     background: #23234a;

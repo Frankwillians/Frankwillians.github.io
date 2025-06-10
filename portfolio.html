@@ -226,10 +226,11 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="gallery-img-area">
             <img src="${mainImg}" alt="${item.title || ''}" class="gallery-main-img" loading="lazy">
             <div class="gallery-img-overlay">
+                <div class="gallery-title">${item.title || ''}</div>
+
                 <div class="gallery-img-details">VER DETALHES</div>
             </div>
         </div>
-        <div class="gallery-title">${item.title || ''}</div>
 
         <div class="gallery-card-info">
             <div class="gallery-desc">${item.description || ''}</div>
