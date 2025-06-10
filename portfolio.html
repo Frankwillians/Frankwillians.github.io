@@ -221,7 +221,8 @@ document.addEventListener('DOMContentLoaded', function () {
         let html = '';
         data.items.forEach((item, idx) => {
             let images = Array.isArray(item.images) ? item.images.filter(img => img && img.data) : [];
-            const mainImg = images[0] && images[0].data ? images[0].data : 'https://via.placeholder.com/320x180?text=Sem+Imagem';
+            const thumbIdx = typeof item.thumbnailIndex === 'number' ? item.thumbnailIndex : 0;
+            const mainImg = images[thumbIdx] && images[thumbIdx].data ? images[thumbIdx].data : 'https://via.placeholder.com/320x180?text=Sem+Imagem';
             let tags = Array.isArray(item.tags) ? item.tags : (item.category ? [item.category] : []);
             // Filtro
             if (filter && filter !== 'all' && !tags.includes(filter)) return;
@@ -234,7 +235,6 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                     </div>
                     <div class="gallery-card-info">
-                        
                         <div class="gallery-title">${item.title || ''}</div>
                         <div class="gallery-desc">${item.description || ''}</div>
                         <div class="gallery-tags">
@@ -275,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 });
 
-// Função para mostrar modal de detalhes (igual resposta anterior)
+// Função para mostrar modal de detalhes
 function showPortfolioModal(item) {
     document.getElementById('portfolio-modal').style.display = 'flex';
     document.getElementById('portfolio-modal-title').textContent = item.title || '';
@@ -293,12 +293,13 @@ function showPortfolioModal(item) {
 
     // Imagem principal e thumbs
     let images = Array.isArray(item.images) ? item.images.filter(img => img && img.data) : [];
-    const mainImg = images[0] && images[0].data ? images[0].data : 'https://via.placeholder.com/320x320?text=Sem+Imagem';
+    const thumbIdx = typeof item.thumbnailIndex === 'number' ? item.thumbnailIndex : 0;
+    const mainImg = images[thumbIdx] && images[thumbIdx].data ? images[thumbIdx].data : 'https://via.placeholder.com/320x320?text=Sem+Imagem';
     document.getElementById('portfolio-modal-main-img').src = mainImg;
     document.getElementById('portfolio-modal-main-img').alt = item.title || '';
     let thumbsHtml = '';
     images.forEach((img, idx) => {
-        thumbsHtml += `<img src="${img.data}" alt="${item.title || ''}" class="${idx===0?'active':''}" data-idx="${idx}" style="width:60px;height:60px;object-fit:contain;background:#23232a;border-radius:6px;border:2px solid ${idx===0?'#8a2be2':'transparent'};cursor:pointer;opacity:${idx===0?'1':'0.7'};margin-bottom:0;">`;
+        thumbsHtml += `<img src="${img.data}" alt="${item.title || ''}" class="${idx===thumbIdx?'active':''}" data-idx="${idx}" style="width:60px;height:60px;object-fit:contain;background:#23232a;border-radius:6px;border:2px solid ${idx===thumbIdx?'#8a2be2':'transparent'};cursor:pointer;opacity:${idx===thumbIdx?'1':'0.7'};margin-bottom:0;">`;
     });
     document.getElementById('portfolio-modal-thumbs').innerHTML = thumbsHtml;
     document.querySelectorAll('#portfolio-modal-thumbs img').forEach(thumb => {
