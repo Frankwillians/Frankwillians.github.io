@@ -229,8 +229,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 <div class="gallery-img-details">VER DETALHES</div>
             </div>
         </div>
+        <div class="gallery-title">${item.title || ''}</div>
+
         <div class="gallery-card-info">
-            <div class="gallery-title">${item.title || ''}</div>
             <div class="gallery-desc">${item.description || ''}</div>
             <div class="gallery-tags">
                 ${tags.map(tag => `<span class="gallery-tag">${tag}</span>`).join('')}
