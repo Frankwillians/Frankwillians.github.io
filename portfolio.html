@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./portfolio_styles.css">
-    <script src="/js/portfolio.js" defer></script>
+
 </head>
 <body>
     <!-- Preloader -->
@@ -49,18 +49,6 @@
             </div>
         </div>
     </header>
-    
-    <div class="portfolio-section">
-    <div class="portfolio-filter">
-        <button class="active" data-filter="all">Todos</button>
-        <button data-filter="resina">Resina</button>
-        <button data-filter="fdm">FDM</button>
-    </div>
-    
-    <div id="portfolio-items">
-        <!-- Os itens serão carregados dinamicamente aqui -->
-    </div>
-    </div>
 
     <!-- Portfolio Hero -->
     <section class="portfolio-hero">
@@ -73,237 +61,35 @@
         <div class="portfolio-hero-overlay"></div>
     </section>
 
-    <!-- Portfolio Filters -->
-    <section class="portfolio-filters">
-        <div class="container">
-            <div class="filters-container">
-                <div class="filter-group">
-                    <h3>Tecnologia:</h3>
-                    <div class="filter-buttons">
-                        <button class="filter-btn active" data-filter="all">Todos</button>
-                        <button class="filter-btn" data-filter="fdm">FDM</button>
-                        <button class="filter-btn" data-filter="resina">Resina</button>
-                    </div>
-                </div>
-                <div class="filter-group">
-                    <h3>Categoria:</h3>
-                    <div class="filter-buttons">
-                        <button class="filter-btn active" data-filter="all">Todos</button>
-                        <button class="filter-btn" data-filter="jogos">Jogos</button>
-                        <button class="filter-btn" data-filter="filmes">Filmes/Séries</button>
-                        <button class="filter-btn" data-filter="anime">Anime/Mangá</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Gallery -->
-    <section class="portfolio-gallery">
-        <div class="container">
-            <div class="gallery-grid">
-                <!-- Pyramid Head -->
-                <div class="project-item fdm jogos filmes">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="images/pyramid.png" alt="Pyramid Head - Silent Hill">
-                            <div class="project-overlay">
-                                <div class="project-details">
-                                    <h3>Pyramid Head</h3>
-                                    <p>Silent Hill</p>
-                                    <a href="#" class="btn btn-small project-view-btn" data-project="pyramid-head">Ver Detalhes</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Pyramid Head</h3>
-                            <p>Impressão FDM com acabamento premium</p>
-                            <div class="project-tags">
-                                <span class="tag">Silent Hill</span>
-                                <span class="tag">Terror</span>
-                                <span class="tag">FDM</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Ravena -->
-                <div class="project-item fdm anime">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="images/ravena.png" alt="Ravena - Teen Titans">
-                            <div class="project-overlay">
-                                <div class="project-details">
-                                    <h3>Ravena</h3>
-                                    <p>Teen Titans</p>
-                                    <a href="#" class="btn btn-small project-view-btn" data-project="ravena">Ver Detalhes</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Ravena</h3>
-                            <p>Impressão FDM com pintura metálica</p>
-                            <div class="project-tags">
-                                <span class="tag">Teen Titans</span>
-                                <span class="tag">DC Comics</span>
-                                <span class="tag">FDM</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Singed -->
-                <div class="project-item fdm jogos">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="images/singed.png" alt="Singed - League of Legends">
-                            <div class="project-overlay">
-                                <div class="project-details">
-                                    <h3>Singed</h3>
-                                    <p>League of Legends</p>
-                                    <a href="#" class="btn btn-small project-view-btn" data-project="singed">Ver Detalhes</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Singed</h3>
-                            <p>Impressão FDM com detalhes coloridos</p>
-                            <div class="project-tags">
-                                <span class="tag">League of Legends</span>
-                                <span class="tag">MOBA</span>
-                                <span class="tag">FDM</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Jill Valentine -->
-                <div class="project-item fdm jogos filmes">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="images/jill.png" alt="Jill Valentine - Resident Evil">
-                            <div class="project-overlay">
-                                <div class="project-details">
-                                    <h3>Jill Valentine</h3>
-                                    <p>Resident Evil</p>
-                                    <a href="#" class="btn btn-small project-view-btn" data-project="jill">Ver Detalhes</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Jill Valentine</h3>
-                            <p>Impressão FDM com acabamento realista</p>
-                            <div class="project-tags">
-                                <span class="tag">Resident Evil</span>
-                                <span class="tag">Capcom</span>
-                                <span class="tag">FDM</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Placeholder Projects -->
-                <div class="project-item resina anime">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="images/project-placeholder-5.jpg" alt="Kratos">
-                            <div class="project-overlay">
-                                <div class="project-details">
-                                    <h3>Kratos ZES Studios</h3>
-                                    <p>Impressão em resina</p>
-                                    <a href="#" class="btn btn-small project-view-btn" data-project="anime1">Ver Detalhes</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Personagem Anime</h3>
-                            <p>Impressão em resina com detalhes finos</p>
-                            <div class="project-tags">
-                                <span class="tag">Anime</span>
-                                <span class="tag">Resina</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-item resina jogos">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="images/project-placeholder-6.jpg" alt="Personagem de Jogo">
-                            <div class="project-overlay">
-                                <div class="project-details">
-                                    <h3>Personagem de Jogo</h3>
-                                    <p>Impressão em resina</p>
-                                    <a href="#" class="btn btn-small project-view-btn" data-project="game1">Ver Detalhes</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Personagem de Jogo</h3>
-                            <p>Impressão em resina com acabamento premium</p>
-                            <div class="project-tags">
-                                <span class="tag">Jogo</span>
-                                <span class="tag">Resina</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Project Details Modals -->
-    <div class="project-modal" id="modal-pyramid-head">
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <div class="modal-body">
-                <div class="modal-gallery">
-                    <div class="main-image">
-                        <img src="images/pyramid2.png" alt="Pyramid Head - Silent Hill">
-                    </div>
-                    <div class="thumbnail-images">
-                        <img src="images/pyramid.png" alt="Pyramid Head - Vista Frontal" class="active">
-                        <img src="images/pyramid2.png" alt="Pyramid Head - Vista Lateral">
+<div class="portfolio-section">
+   <!-- Filtro de categorias -->
+<div style="display:flex;justify-content:center;gap:1rem;margin:2rem 0;">
+    <button class="filter-btn active" data-filter="all">Todos</button>
+    <button class="filter-btn" data-filter="FDM">FDM</button>
+    <button class="filter-btn" data-filter="Resina">Resina</button>
+</div>
     
-                    </div>
-                </div>
-                <div class="modal-info">
-                    <h2>Pyramid Head</h2>
-                    <p class="modal-subtitle">Silent Hill</p>
-                    
-                    <div class="modal-description">
-                        <p>Action figure do icônico personagem Pyramid Head da série de jogos Silent Hill, conhecido por seu capacete piramidal e grande espada. Esta peça foi impressa em tecnologia FDM (filamento) e recebeu um acabamento artístico detalhado para simular texturas metálicas, enferrujadas e envelhecidas.</p>
-                        
-                        <p>Apesar das limitações naturais da impressão FDM, que pode apresentar marcas de camadas, o processo de acabamento e pintura foi meticulosamente executado para minimizar essas marcas e destacar os detalhes do personagem.</p>
-                    </div>
-                    
-                    <div class="modal-specs">
-                        <div class="spec-item">
-                            <span class="spec-label">Tecnologia:</span>
-                            <span class="spec-value">Impressão FDM (Filamento)</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Material:</span>
-                            <span class="spec-value">PLA</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Altura:</span>
-                            <span class="spec-value">25cm</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Acabamento:</span>
-                            <span class="spec-value">Pintura manual com efeitos de textura e envelhecimento</span>
-                        </div>
-                        <div class="spec-item">
-                            <span class="spec-label">Base:</span>
-                            <span class="spec-value">Cenário personalizado</span>
-                        </div>
-                    </div>
-                    
-                    <div class="modal-cta">
-                        <a href="contato.html" class="btn btn-primary">Solicitar Orçamento Similar</a>
-                    </div>
-                </div>
+    <div class="gallery-grid" id="portfolio-items">
+        
+    </div>
+
+        <!-- Os itens serão carregados dinamicamente aqui -->
+    </div>
+</div>
+<!-- Modal de detalhes do portfólio -->
+    <div class="modal" id="portfolio-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:999;background:rgba(0,0,0,0.8);align-items:center;justify-content:center;">
+        <div class="modal-content" style="background:#232336;padding:32px 24px;border-radius:12px;max-width:900px;width:95vw;max-height:90vh;overflow:auto;display:flex;gap:32px;position:relative;">
+            <span class="close" id="portfolio-modal-close" style="position:absolute;top:18px;right:22px;font-size:2rem;cursor:pointer;color:#fff;">&times;</span>
+            <div style="flex:1;min-width:260px;">
+                <img id="portfolio-modal-main-img" src="" alt="" style="width:100%;border-radius:10px;max-height:400px;object-fit:contain;background:#181828;">
+                <div id="portfolio-modal-thumbs" class="portfolio-modal-thumbs" style="display:flex;gap:8px;margin-top:12px;"></div>
+            </div>
+            <div style="flex:2;min-width:260px;">
+                <h2 id="portfolio-modal-title" style="margin:0 0 8px 0;color:#fff;font-family:'Orbitron',sans-serif;"></h2>
+                <div id="portfolio-modal-category" style="color:#8a2be2;font-weight:500;margin-bottom:4px;"></div>
+                <div id="portfolio-modal-desc" style="color:#ccc;margin-bottom:18px;"></div>
+                <div id="portfolio-modal-table" style="background:#181828;padding:16px 18px;border-radius:8px;color:#fff;font-size:1.05em;margin-bottom:18px;"></div>
+                <button style="background:linear-gradient(90deg,#00c6fb 0,#8a2be2 100%);color:#fff;border:none;padding:12px 28px;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;">SOLICITAR ORÇAMENTO SIMILAR</button>
             </div>
         </div>
     </div>
@@ -384,7 +170,6 @@
                         <li><a href="index.html">Início</a></li>
                         <li><a href="servicos.html">Serviços</a></li>
                         <li><a href="portfolio.html">Portfólio</a></li>
-                 
                     </ul>
                 </div>
                 <div class="footer-contact">
@@ -414,6 +199,150 @@
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/portfolio.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const portfolioItemsDiv = document.getElementById('portfolio-items');
+    let data = localStorage.getItem('portfolio_data');
+    if (!portfolioItemsDiv) return;
+    if (!data) {
+        portfolioItemsDiv.innerHTML = '<p>Nenhum projeto cadastrado ainda.</p>';
+        return;
+    }
+    try { data = JSON.parse(data); } catch { portfolioItemsDiv.innerHTML = '<p>Erro ao carregar projetos.</p>'; return; }
+    if (!data.items || !Array.isArray(data.items) || data.items.length === 0) {
+        portfolioItemsDiv.innerHTML = '<p>Nenhum projeto cadastrado ainda.</p>';
+        return;
+    }
+
+    // Renderização dos cards
+    function renderCards(filter) {
+        let html = '';
+        data.items.forEach((item, idx) => {
+            let images = Array.isArray(item.images) ? item.images.filter(img => img && img.data) : [];
+            const mainImg = images[0] && images[0].data ? images[0].data : 'https://via.placeholder.com/320x180?text=Sem+Imagem';
+            let tags = Array.isArray(item.tags) ? item.tags : (item.category ? [item.category] : []);
+            // Filtro
+            if (filter && filter !== 'all' && !tags.includes(filter)) return;
+            html += `
+                <div class="gallery-card" data-idx="${idx}">
+                    <div class="gallery-img-area">
+                        <img src="${mainImg}" alt="${item.title || ''}" class="gallery-main-img" loading="lazy">
+                        <div class="gallery-img-overlay">
+                            <div class="gallery-img-title">${item.title || ''}</div>
+                            <div class="gallery-img-category">${item.category || ''}</div>
+                            <div class="gallery-img-details">VER DETALHES</div>
+                        </div>
+                    </div>
+                    <div class="gallery-card-info">
+                        <div class="gallery-title">${item.title || ''}</div>
+                        <div class="gallery-desc">${item.description || ''}</div>
+                        <div class="gallery-tags">
+                            ${tags.map(tag => `<span class="gallery-tag">${tag}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+        portfolioItemsDiv.innerHTML = html;
+
+        // Evento para abrir modal
+        document.querySelectorAll('.gallery-card').forEach(card => {
+            card.addEventListener('click', function() {
+                const idx = this.getAttribute('data-idx');
+                showPortfolioModal(data.items[idx]);
+            });
+        });
+    }
+
+    renderCards('all');
+
+    // Filtro de categorias
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            renderCards(this.getAttribute('data-filter'));
+        });
+    });
+
+    // Modal close
+    document.getElementById('portfolio-modal-close').onclick = function() {
+        document.getElementById('portfolio-modal').style.display = 'none';
+    };
+    document.getElementById('portfolio-modal').onclick = function(e) {
+        if (e.target === this) this.style.display = 'none';
+    };
+});
+
+// Função para mostrar modal de detalhes (igual resposta anterior)
+function showPortfolioModal(item) {
+    document.getElementById('portfolio-modal').style.display = 'flex';
+    document.getElementById('portfolio-modal-title').textContent = item.title || '';
+    document.getElementById('portfolio-modal-category').textContent = item.category || '';
+    document.getElementById('portfolio-modal-desc').textContent = item.description || '';
+
+    // Só mostra campos preenchidos
+    let detalhesHtml = '';
+    if (item.tecnologia) detalhesHtml += `<div><b>Tecnologia:</b> ${item.tecnologia}</div>`;
+    if (item.material)   detalhesHtml += `<div><b>Material:</b> ${item.material}</div>`;
+    if (item.altura)     detalhesHtml += `<div><b>Altura:</b> ${item.altura}</div>`;
+    if (item.acabamento) detalhesHtml += `<div><b>Acabamento:</b> ${item.acabamento}</div>`;
+    if (item.base)       detalhesHtml += `<div><b>Base:</b> ${item.base}</div>`;
+    document.getElementById('portfolio-modal-table').innerHTML = detalhesHtml;
+
+    // Imagem principal e thumbs
+    let images = Array.isArray(item.images) ? item.images.filter(img => img && img.data) : [];
+    const mainImg = images[0] && images[0].data ? images[0].data : 'https://via.placeholder.com/320x320?text=Sem+Imagem';
+    document.getElementById('portfolio-modal-main-img').src = mainImg;
+    document.getElementById('portfolio-modal-main-img').alt = item.title || '';
+    let thumbsHtml = '';
+    images.forEach((img, idx) => {
+        thumbsHtml += `<img src="${img.data}" alt="${item.title || ''}" class="${idx===0?'active':''}" data-idx="${idx}" style="width:60px;height:60px;object-fit:contain;background:#23232a;border-radius:6px;border:2px solid ${idx===0?'#8a2be2':'transparent'};cursor:pointer;opacity:${idx===0?'1':'0.7'};margin-bottom:0;">`;
+    });
+    document.getElementById('portfolio-modal-thumbs').innerHTML = thumbsHtml;
+    document.querySelectorAll('#portfolio-modal-thumbs img').forEach(thumb => {
+        thumb.onclick = function() {
+            document.getElementById('portfolio-modal-main-img').src = this.src;
+            document.querySelectorAll('#portfolio-modal-thumbs img').forEach(img => {
+                img.classList.remove('active');
+                img.style.border = '2px solid transparent';
+                img.style.opacity = '0.7';
+            });
+            this.classList.add('active');
+            this.style.border = '2px solid #8a2be2';
+            this.style.opacity = '1';
+        };
+    });
+}
+
+// Fecha o modal ao clicar no X ou fora do conteúdo
+document.getElementById('portfolio-modal-close').onclick = function() {
+    document.getElementById('portfolio-modal').style.display = 'none';
+};
+document.getElementById('portfolio-modal').onclick = function(e) {
+    if (e.target === this) this.style.display = 'none';
+};
+</script>
 </body>
+
+<div class="portfolio-modal" id="portfolio-modal" style="display:none;">
+    <div class="portfolio-modal-content">
+        <span class="portfolio-modal-close" id="portfolio-modal-close">&times;</span>
+        <div class="portfolio-modal-body">
+            <div class="portfolio-modal-images">
+                <img id="portfolio-modal-main-img" src="" alt="" class="portfolio-modal-main-img">
+                <div class="portfolio-modal-thumbs" id="portfolio-modal-thumbs"></div>
+            </div>
+            <div class="portfolio-modal-info">
+                <h2 id="portfolio-modal-title"></h2>
+                <div id="portfolio-modal-category" style="color:#8a2be2;margin-bottom:0.5rem;"></div>
+                <div id="portfolio-modal-desc" style="margin-bottom:1rem;"></div>
+                <div id="portfolio-modal-table"></div>
+                <button id="portfolio-modal-btn" style="margin-top:1.5rem;background:linear-gradient(90deg,#00f0ff,#8a2be2);color:#fff;padding:0.7rem 2rem;border:none;border-radius:6px;font-weight:700;cursor:pointer;">SOLICITAR ORÇAMENTO SIMILAR</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </html>

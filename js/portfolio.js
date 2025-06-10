@@ -87,18 +87,23 @@ function createPortfolioItem(item) {
     // Criar elemento principal
     const itemElement = document.createElement('div');
     itemElement.className = 'portfolio-item';
-    itemElement.setAttribute('data-category', item.category.toLowerCase());
+    itemElement.setAttribute('data-category', item.category ? item.category.toLowerCase() : '');
     itemElement.setAttribute('data-id', item.id);
-    
-    // Obter primeira imagem como thumbnail
-    const thumbnailUrl = item.images && item.images.length > 0 
-        ? `/${item.images[0].thumbnail}`
-        : '/images/site/placeholder.jpg';
+
+    // Ajuste: usar thumbnail, filename ou placeholder
+    let thumbnailUrl = '/images/site/placeholder.jpg';
+    if (item.images && item.images.length > 0) {
+        if (item.images[0].thumbnail) {
+            thumbnailUrl = item.images[0].thumbnail.startsWith('/') ? item.images[0].thumbnail : '/' + item.images[0].thumbnail;
+        } else if (item.images[0].filename) {
+            thumbnailUrl = item.images[0].filename.startsWith('/') ? item.images[0].filename : '/' + item.images[0].filename;
+        }
+    }
     
     // Criar HTML interno
     itemElement.innerHTML = `
         <div class="portfolio-item-image">
-            <img src="${thumbnailUrl}" alt="${item.title}" loading="lazy">
+            <img src="${thumbnailUrl}" alt="${item.title || ''}" loading="lazy" class="gallery-main-img">
             <div class="portfolio-item-overlay">
                 <div class="portfolio-item-actions">
                     <button class="view-item" data-id="${item.id}">Ver Detalhes</button>
@@ -106,8 +111,8 @@ function createPortfolioItem(item) {
             </div>
         </div>
         <div class="portfolio-item-info">
-            <h3>${item.title}</h3>
-            <span class="category">${item.category}</span>
+            <h3>${item.title || ''}</h3>
+            <span class="category">${item.category || ''}</span>
         </div>
     `;
     
@@ -224,15 +229,21 @@ function showItemDetails(item) {
     if (!modal) return;
     
     // Preencher dados do item
-    document.getElementById('modal-title').textContent = item.title;
-    document.getElementById('modal-category').textContent = item.category;
-    document.getElementById('modal-description').textContent = item.description;
+    document.getElementById('modal-title').textContent = item.title || '';
+    document.getElementById('modal-category').textContent = item.category || '';
+    document.getElementById('modal-description').textContent = item.description || '';
     
     // Preencher imagem principal
     const mainImage = document.getElementById('modal-main-image');
     if (mainImage && item.images && item.images.length > 0) {
-        mainImage.src = `/${item.images[0].filename}`;
-        mainImage.alt = item.title;
+        let mainImgUrl = '/images/site/placeholder.jpg';
+        if (item.images[0].filename) {
+            mainImgUrl = item.images[0].filename.startsWith('/') ? item.images[0].filename : '/' + item.images[0].filename;
+        } else if (item.images[0].thumbnail) {
+            mainImgUrl = item.images[0].thumbnail.startsWith('/') ? item.images[0].thumbnail : '/' + item.images[0].thumbnail;
+        }
+        mainImage.src = mainImgUrl;
+        mainImage.alt = item.title || '';
     }
     
     // Preencher miniaturas
@@ -245,13 +256,25 @@ function showItemDetails(item) {
             thumbnail.className = 'thumbnail';
             if (index === 0) thumbnail.classList.add('active');
             
-            thumbnail.innerHTML = `<img src="/${image.thumbnail}" alt="${image.alt || item.title}">`;
+            let thumbUrl = '/images/site/placeholder.jpg';
+            if (image.thumbnail) {
+                thumbUrl = image.thumbnail.startsWith('/') ? image.thumbnail : '/' + image.thumbnail;
+            } else if (image.filename) {
+                thumbUrl = image.filename.startsWith('/') ? image.filename : '/' + image.filename;
+            }
+            
+            thumbnail.innerHTML = `<img src="${thumbUrl}" alt="${image.alt || item.title || ''}">`;
             
             // Adicionar event listener para trocar imagem principal
             thumbnail.addEventListener('click', () => {
-                // Atualizar imagem principal
-                mainImage.src = `/${image.filename}`;
-                mainImage.alt = image.alt || item.title;
+                let mainImgUrl = '/images/site/placeholder.jpg';
+                if (image.filename) {
+                    mainImgUrl = image.filename.startsWith('/') ? image.filename : '/' + image.filename;
+                } else if (image.thumbnail) {
+                    mainImgUrl = image.thumbnail.startsWith('/') ? image.thumbnail : '/' + image.thumbnail;
+                }
+                mainImage.src = mainImgUrl;
+                mainImage.alt = image.alt || item.title || '';
                 
                 // Atualizar classe ativa
                 document.querySelectorAll('.thumbnail').forEach(thumb => thumb.classList.remove('active'));
@@ -260,6 +283,8 @@ function showItemDetails(item) {
             
             thumbnailsContainer.appendChild(thumbnail);
         });
+    } else if (thumbnailsContainer) {
+        thumbnailsContainer.innerHTML = '';
     }
     
     // Exibir modal

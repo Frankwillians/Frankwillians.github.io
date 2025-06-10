@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 <body>
     <div class="stars-container">
         <div id="stars"></div>
@@ -26,16 +29,7 @@
             <div class="panel">
                 <h3>Login</h3>
                 <p>Faça login para gerenciar seu portfólio</p>
-                <div class="form-group">
-                    <label for="token">Token do GitHub</label>
-                    <input type="password" id="token" placeholder="Insira seu token pessoal do GitHub">
-                    <small>Você precisa de um token com permissões de 'repo'</small>
-                </div>
-                <div class="form-group">
-                    <label for="repo">Repositório</label>
-                    <input type="text" id="repo" placeholder="usuário/repositório" value="frankwillians/frankwillians.github.io">
-                </div>
-                <button class="btn primary" id="login-btn">Entrar</button>
+                <button id="login-github" class="btn primary">Entrar com GitHub</button>
             </div>
         </div>
 
@@ -46,6 +40,7 @@
                         <li><a href="#" class="active" data-view="dashboard">Dashboard</a></li>
                         <li><a href="#" data-view="add-post">Adicionar Post</a></li>
                         <li><a href="#" data-view="manage-posts">Gerenciar Posts</a></li>
+                        <!-- REMOVIDO: <li><a href="#" data-view="github-config">Configurações GitHub</a></li> -->
                         <li><a href="#" id="logout-btn">Sair</a></li>
                     </ul>
                 </nav>
@@ -58,15 +53,15 @@
                     <div class="stats-container">
                         <div class="stat-card">
                             <h4>Total de Posts</h4>
-                            <p id="total-posts">Carregando...</p>
+                            <p id="total-posts">0</p>
                         </div>
                         <div class="stat-card">
                             <h4>Posts em Resina</h4>
-                            <p id="resin-posts">Carregando...</p>
+                            <p id="resin-posts">0</p>
                         </div>
                         <div class="stat-card">
                             <h4>Posts em FDM</h4>
-                            <p id="fdm-posts">Carregando...</p>
+                            <p id="fdm-posts">0</p>
                         </div>
                     </div>
                     <div class="recent-posts">
@@ -80,49 +75,69 @@
                 <!-- Add Post View -->
                 <div class="view hidden" id="add-post-view">
                     <h3>Adicionar Novo Post</h3>
-                    <form id="add-post-form">
-                        <div class="form-group">
-                            <label for="post-title">Título</label>
-                            <input type="text" id="post-title" required placeholder="Ex: Miniatura de Personagem">
-                        </div>
-                        <div class="form-group">
-                            <label for="post-description">Descrição</label>
-                            <textarea id="post-description" required placeholder="Descreva seu projeto..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="post-category">Categoria</label>
-                            <select id="post-category" required>
-                                <option value="">Selecione uma categoria</option>
-                                <option value="Resina">Resina</option>
-                                <option value="FDM">FDM</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="post-images">Imagens</label>
-                            <div class="image-upload-container">
-                                <div class="image-upload-area" id="image-upload-area">
-                                    <input type="file" id="post-images" multiple accept="image/*">
-                                    <div class="upload-placeholder">
-                                        <span class="icon">+</span>
-                                        <p>Clique ou arraste imagens aqui</p>
-                                        <small>Formatos aceitos: JPG, PNG, WebP</small>
-                                    </div>
-                                </div>
-                                <div class="image-previews" id="image-previews"></div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="checkbox-container">
-                                <input type="checkbox" id="post-featured">
-                                <span class="checkmark"></span>
-                                Destacar na página inicial
-                            </label>
-                        </div>
-                        <div class="form-actions">
-                            <button type="button" class="btn secondary" id="cancel-add">Cancelar</button>
-                            <button type="submit" class="btn primary">Salvar Post</button>
-                        </div>
-                    </form>
+                   <form id="add-post-form">
+    <div class="form-group">
+        <label for="post-title">Título</label>
+        <input type="text" id="post-title" required placeholder="Ex: Kratos">
+    </div>
+    <div class="form-group">
+        <label for="post-description">Descrição</label>
+        <textarea id="post-description" required placeholder="Ex: God of war"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="post-category">Categoria</label>
+        <select id="post-category" required>
+            <option value="">Selecione uma categoria</option>
+            <option value="Resina">Resina</option>
+            <option value="FDM">FDM</option>
+        </select>
+    </div>
+    <div class="form-group">
+    <label for="post-tecnologia">Tecnologia</label>
+    <input type="text" id="post-tecnologia" placeholder="Ex: Impressão 3D Resina">
+</div>
+<div class="form-group">
+    <label for="post-material">Material</label>
+    <input type="text" id="post-material" placeholder="Ex: Resina">
+</div>
+<div class="form-group">
+    <label for="post-altura">Altura</label>
+    <input type="text" id="post-altura" placeholder="Ex: 25cm">
+</div>
+<div class="form-group">
+    <label for="post-acabamento">Acabamento</label>
+    <input type="text" id="post-acabamento" placeholder="Ex: Pintura manual">
+</div>
+<div class="form-group">
+    <label for="post-base">Base</label>
+    <input type="text" id="post-base" placeholder="Ex: Base personalizada">
+</div>
+    <div class="form-group">
+        <label for="post-images">Imagens</label>
+        <div class="image-upload-container">
+            <div class="image-upload-area" id="image-upload-area">
+                <input type="file" id="post-images" multiple accept="image/*">
+                <div class="upload-placeholder">
+                    <span class="icon">+</span>
+                    <p>Clique ou arraste imagens aqui</p>
+                    <small>Formatos aceitos: JPG, PNG, WebP</small>
+                </div>
+            </div>
+            <div class="image-previews" id="image-previews"></div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="checkbox-container">
+            <input type="checkbox" id="post-featured">
+            <span class="checkmark"></span>
+            Destacar na página inicial
+        </label>
+    </div>
+    <div class="form-actions">
+        <button type="button" class="btn secondary" id="cancel-add">Cancelar</button>
+        <button type="submit" class="btn primary" id="save-post-btn">Salvar Post</button>
+    </div>
+</form>
                 </div>
 
                 <!-- Manage Posts View -->
@@ -145,8 +160,6 @@
                         <p>Carregando posts...</p>
                     </div>
                 </div>
-            </div>
-        </div>
 
         <!-- Modal para confirmação de exclusão -->
         <div class="modal" id="delete-modal">
@@ -173,8 +186,34 @@
 
     <script src="js/auth.js"></script>
     <script src="js/ui.js"></script>
-    <script src="js/github.js"></script>
+   <script src="js/github-api.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Contadores do dashboard -->
+    <script>
+    function updateAdminCounters() {
+        let data = localStorage.getItem('portfolio_data');
+        let total = 0, fdm = 0, resina = 0;
+        if (data) {
+            try { data = JSON.parse(data); } catch { data = { items: [] }; }
+            if (data.items && Array.isArray(data.items)) {
+                total = data.items.length;
+                data.items.forEach(item => {
+                    const cat = (item.category || item.categoria || '').toLowerCase();
+                    if (cat === 'fdm') fdm++;
+                    if (cat === 'resina') resina++;
+                });
+            }
+        }
+        // Atualiza os contadores no dashboard
+        if(document.getElementById('total-posts')) document.getElementById('total-posts').textContent = total;
+        if(document.getElementById('fdm-posts')) document.getElementById('fdm-posts').textContent = fdm;
+        if(document.getElementById('resin-posts')) document.getElementById('resin-posts').textContent = resina;
+    }
+
+    // Chame sempre que adicionar/remover posts:
+    document.addEventListener('DOMContentLoaded', updateAdminCounters);
+    </script>
 </body>
 </html>
