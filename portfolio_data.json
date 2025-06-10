@@ -107,7 +107,27 @@
       ],
       "thumbnailIndex": 2,
       "featured": false
+    },
+    {
+      "id": "item_1749578261298",
+      "title": "Kratos",
+      "description": "God of war model  from ZEZ Studios",
+      "category": "Resina",
+      "tecnologia": "sla",
+      "material": "resina",
+      "altura": "40cm",
+      "acabamento": "pintura manual",
+      "base": "fdm",
+      "date_added": "2025-06-10T17:57:41.298Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/WJnJpoY.jpeg",
+          "name": "ZEZ Studios - Kratos + Bust + Poster - May 2024.jpg"
+        }
+      ],
+      "thumbnailIndex": 0,
+      "featured": false
     }
   ],
-  "last_updated": "2025-06-10T17:23:22.374Z"
+  "last_updated": "2025-06-10T17:57:45.220Z"
 }
