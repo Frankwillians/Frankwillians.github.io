@@ -99,7 +99,35 @@
       ],
       "thumbnailIndex": 2,
       "featured": false
+    },
+    {
+      "id": "item_1749574181878",
+      "title": "Jill Valentine",
+      "description": "Jill Valentine é uma personagem icónica da série Resident Evil, conhecida pela sua coragem, habilidades de combate e dedicação na luta contra a Umbrella Corporation. Ela é uma ex-membro da STARS (Special Tactics And Rescue Service) e uma cofundadora da BSAA (Bioterrorism Security Assessment Alliance), trabalhando para proteger a humanidade de ameaças bioterroristas. ",
+      "category": "FDM",
+      "tecnologia": "FDM",
+      "material": "PLA",
+      "altura": "17cm",
+      "acabamento": "pintura manual",
+      "base": "",
+      "date_added": "2025-06-10T16:49:41.878Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/UL7GiDg.png",
+          "name": "Captura de tela 2025-06-10 134533.png"
+        },
+        {
+          "data": "https://i.imgur.com/tHXh0Pz.png",
+          "name": "Captura de tela 2025-06-10 134613.png"
+        },
+        {
+          "data": "https://i.imgur.com/RHw5YjI.png",
+          "name": "jill.png"
+        }
+      ],
+      "thumbnailIndex": 0,
+      "featured": false
     }
   ],
-  "last_updated": "2025-06-10T16:48:14.869Z"
+  "last_updated": "2025-06-10T16:49:42.741Z"
 }
