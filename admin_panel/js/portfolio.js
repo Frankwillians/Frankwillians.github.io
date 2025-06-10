@@ -4,6 +4,7 @@ class Portfolio {
         this.uploadedImages = [];
         this.selectedItemId = null;
         this.isEditing = false;
+        const storage = firebase.storage();
 
         // Elementos do formulário
         this.addPostForm = document.getElementById('add-post-form');
@@ -91,30 +92,25 @@ class Portfolio {
         });
     }
 
-    handleImageUpload(event) {
-        const files = event.target.files;
-        if (!files || files.length === 0) return;
-        if (this.uploadedImages.length + files.length > 10) {
-            alert('Você pode fazer upload de no máximo 10 imagens por post.');
+   handleImageUpload(event) {
+    const files = event.target.files;
+    if (!files || files.length === 0) return;
+    if (this.uploadedImages.length + files.length > 10) {
+        alert('Você pode fazer upload de no máximo 10 imagens por post.');
+        return;
+    }
+    Array.from(files).forEach(file => {
+        if (!file.type.startsWith('image/')) {
+            alert(`O arquivo "${file.name}" não é uma imagem válida.`);
             return;
         }
-        Array.from(files).forEach(file => {
-            if (!file.type.startsWith('image/')) {
-                alert(`O arquivo "${file.name}" não é uma imagem válida.`);
-                return;
-            }
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                this.uploadedImages.push({
-                    file,
-                    data: e.target.result,
-                    name: file.name
-                });
-                this.updateImagePreviews();
-            };
-            reader.readAsDataURL(file);
+        this.uploadedImages.push({
+            file,
+            name: file.name
         });
-    }
+    });
+    this.updateImagePreviews();
+}
 
     updateImagePreviews() {
         if (!this.imagePreviews) return;
@@ -123,7 +119,10 @@ class Portfolio {
             const preview = document.createElement('div');
             preview.className = 'image-preview';
             const img = document.createElement('img');
-            img.src = image.data;
+            // Mostra preview local
+            const reader = new FileReader();
+            reader.onload = (e) => { img.src = e.target.result; };
+            reader.readAsDataURL(image.file);
             img.alt = `Preview ${index + 1}`;
             const removeBtn = document.createElement('div');
             removeBtn.className = 'remove-image';
@@ -134,6 +133,16 @@ class Portfolio {
             this.imagePreviews.appendChild(preview);
         });
     }
+
+    uploadImageToFirebase(file) {
+    return new Promise((resolve, reject) => {
+        const storageRef = this.storage.ref('portfolio_images/' + Date.now() + '_' + file.name);
+        const uploadTask = storageRef.put(file);
+        uploadTask.on('state_changed', null, reject, () => {
+            uploadTask.snapshot.ref.getDownloadURL().then(resolve).catch(reject);
+        });
+    });
+}
 
     removeImage(index) {
         this.uploadedImages.splice(index, 1);
@@ -191,7 +200,7 @@ deletePost(id) {
     });
 }
 
-savePost() {
+async savePost() {
     const title = this.postTitleInput.value;
     const description = this.postDescriptionInput.value;
     const category = this.postCategorySelect.value;
@@ -211,6 +220,18 @@ savePost() {
         return;
     }
 
+    // Upload das imagens para o Firebase Storage
+    let imageUrls = [];
+    try {
+        for (const img of this.uploadedImages) {
+            const url = await this.uploadImageToFirebase(img.file);
+            imageUrls.push({ url, name: img.name });
+        }
+    } catch (error) {
+        alert('Erro ao fazer upload das imagens: ' + error.message);
+        return;
+    }
+
     let postId, dateAdded, currentPost = null;
     if (this.isEditing) {
         postId = this.selectedItemId;
@@ -220,11 +241,6 @@ savePost() {
         postId = `item_${Date.now()}`;
         dateAdded = new Date().toISOString();
     }
-
-    const allImages = this.uploadedImages.map(img => ({
-        data: img.data,
-        name: img.name
-    }));
 
     const updatedPost = {
         id: postId,
@@ -237,7 +253,7 @@ savePost() {
         acabamento,
         base,
         date_added: dateAdded,
-        images: allImages,
+        images: imageUrls, // Agora só URLs!
         featured
     };
 
