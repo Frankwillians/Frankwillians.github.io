@@ -204,68 +204,71 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
     const portfolioItemsDiv = document.getElementById('portfolio-items');
-    let data = localStorage.getItem('portfolio_data');
     if (!portfolioItemsDiv) return;
-    if (!data) {
-        portfolioItemsDiv.innerHTML = '<p>Nenhum projeto cadastrado ainda.</p>';
-        return;
-    }
-    try { data = JSON.parse(data); } catch { portfolioItemsDiv.innerHTML = '<p>Erro ao carregar projetos.</p>'; return; }
-    if (!data.items || !Array.isArray(data.items) || data.items.length === 0) {
-        portfolioItemsDiv.innerHTML = '<p>Nenhum projeto cadastrado ainda.</p>';
-        return;
-    }
 
-    // Renderização dos cards
-    function renderCards(filter) {
-        let html = '';
-        data.items.forEach((item, idx) => {
-            let images = Array.isArray(item.images) ? item.images.filter(img => img && img.data) : [];
-            const thumbIdx = typeof item.thumbnailIndex === 'number' ? item.thumbnailIndex : 0;
-            const mainImg = images[thumbIdx] && images[thumbIdx].data ? images[thumbIdx].data : 'https://via.placeholder.com/320x180?text=Sem+Imagem';
-            let tags = Array.isArray(item.tags) ? item.tags : (item.category ? [item.category] : []);
-            // Filtro
-            if (filter && filter !== 'all' && !tags.includes(filter)) return;
-            html += `
-                <div class="gallery-card" data-idx="${idx}">
-                    <div class="gallery-img-area">
-                        <img src="${mainImg}" alt="${item.title || ''}" class="gallery-main-img" loading="lazy">
-                        <div class="gallery-img-overlay">
-                            <div class="gallery-img-details">VER DETALHES</div>
+    fetch('https://raw.githubusercontent.com/Frankwillians/Frankwillians.github.io/main/portfolio_data.json')
+      .then(res => res.json())
+      .then(data => {
+        if (!data.items || !Array.isArray(data.items) || data.items.length === 0) {
+            portfolioItemsDiv.innerHTML = '<p>Nenhum projeto cadastrado ainda.</p>';
+            return;
+        }
+
+        // Renderização dos cards
+        function renderCards(filter) {
+            let html = '';
+            data.items.forEach((item, idx) => {
+                let images = Array.isArray(item.images) ? item.images.filter(img => img && img.data) : [];
+                const thumbIdx = typeof item.thumbnailIndex === 'number' ? item.thumbnailIndex : 0;
+                const mainImg = images[thumbIdx] && images[thumbIdx].data ? images[thumbIdx].data : 'https://via.placeholder.com/320x180?text=Sem+Imagem';
+                let tags = Array.isArray(item.tags) ? item.tags : (item.category ? [item.category] : []);
+                // Filtro
+                if (filter && filter !== 'all' && !tags.includes(filter)) return;
+                html += `
+                    <div class="gallery-card" data-idx="${idx}">
+                        <div class="gallery-img-area">
+                            <img src="${mainImg}" alt="${item.title || ''}" class="gallery-main-img" loading="lazy">
+                            <div class="gallery-img-overlay">
+                                <div class="gallery-img-details">VER DETALHES</div>
+                            </div>
+                        </div>
+                        <div class="gallery-card-info">
+                            <div class="gallery-title">${item.title || ''}</div>
+                            <div class="gallery-desc">${item.description || ''}</div>
+                            <div class="gallery-tags">
+                                ${tags.map(tag => `<span class="gallery-tag">${tag}</span>`).join('')}
+                            </div>
                         </div>
                     </div>
-                    <div class="gallery-card-info">
-                        <div class="gallery-title">${item.title || ''}</div>
-                        <div class="gallery-desc">${item.description || ''}</div>
-                        <div class="gallery-tags">
-                            ${tags.map(tag => `<span class="gallery-tag">${tag}</span>`).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-        });
-        portfolioItemsDiv.innerHTML = html;
+                `;
+            });
+            portfolioItemsDiv.innerHTML = html;
 
-        // Evento para abrir modal
-        document.querySelectorAll('.gallery-card').forEach(card => {
-            card.addEventListener('click', function() {
-                const idx = this.getAttribute('data-idx');
-                showPortfolioModal(data.items[idx]);
+            // Evento para abrir modal
+            document.querySelectorAll('.gallery-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const idx = this.getAttribute('data-idx');
+                    showPortfolioModal(data.items[idx]);
+                });
+            });
+        }
+
+        renderCards('all');
+
+        // Filtro de categorias
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                renderCards(this.getAttribute('data-filter'));
             });
         });
-    }
 
-    renderCards('all');
-
-    // Filtro de categorias
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            this.classList.add('active');
-            renderCards(this.getAttribute('data-filter'));
-        });
-    });
-
+      })
+      .catch(() => {
+          portfolioItemsDiv.innerHTML = '<p>Nenhum projeto cadastrado ainda.</p>';
+      });
+});
     // Modal close
     document.getElementById('portfolio-modal-close').onclick = function() {
         document.getElementById('portfolio-modal').style.display = 'none';
@@ -273,7 +276,7 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('portfolio-modal').onclick = function(e) {
         if (e.target === this) this.style.display = 'none';
     };
-});
+
 
 // Função para mostrar modal de detalhes
 function showPortfolioModal(item) {
