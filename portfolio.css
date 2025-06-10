@@ -554,9 +554,6 @@
     font-size: 1rem;
     color: #b0b0b0;
     margin-bottom: 0.7rem;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;         /* Limita a 2 linhas */
-    -webkit-box-orient: vertical;
     overflow: hidden;
     text-align: center;             /* Centraliza o texto */
     width: 90%;
