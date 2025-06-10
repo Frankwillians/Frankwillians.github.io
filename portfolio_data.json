@@ -1,0 +1,33 @@
+{
+  "items": [
+    {
+      "id": "item_1749572920185",
+      "title": "Ravena",
+      "description": "🦇✨ “A escuridão é minha aliada!” ✨🦇\n\nApresentamos essa Action Figure exclusiva da Ravena, diretamente do universo de Os Jovens Titãs, produzida com todo o cuidado pela DarkStar3D_Studio! Essa peça de 25 cm de altura, impressa em PLA e pintada à mão, traz à vida cada detalhe sombrio e místico da poderosa feiticeira.\n\nDesde sua icônica capa esvoaçante até as joias encantadas, cada detalhe foi trabalhado com máxima precisão para um acabamento impressionante!",
+      "category": "FDM",
+      "tecnologia": "FDM",
+      "material": "PLA",
+      "altura": "25cm",
+      "acabamento": "pintura manual",
+      "base": "fdm",
+      "date_added": "2025-06-10T16:28:40.185Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/kiCytrt.jpeg",
+          "name": "WhatsApp Image 2025-04-01 at 23.43.35 (2).jpeg"
+        },
+        {
+          "data": "https://i.imgur.com/Nt8H8vv.jpeg",
+          "name": "WhatsApp Image 2025-04-01 at 23.43.35 (1).jpeg"
+        },
+        {
+          "data": "https://i.imgur.com/mIbmFQH.jpeg",
+          "name": "WhatsApp Image 2025-04-01 at 23.43.35.jpeg"
+        }
+      ],
+      "thumbnailIndex": 2,
+      "featured": false
+    }
+  ],
+  "last_updated": "2025-06-10T16:28:41.279Z"
+}
