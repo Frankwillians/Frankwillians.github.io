@@ -1,0 +1,464 @@
+/* Estilos específicos para a página de serviços */
+
+.services-hero {
+    position: relative;
+    height: 50vh;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--color-dark-blue), var(--color-darker));
+}
+
+.services-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.services-hero h1 {
+    font-family: var(--font-primary);
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.services-hero p {
+    font-size: 18px;
+    color: var(--color-text-secondary);
+}
+
+.services-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/services-hero-bg.jpg') center/cover no-repeat;
+    opacity: 0.2;
+}
+
+/* Technology Tabs */
+.tech-tabs {
+    padding: 80px 0;
+    background-color: var(--color-dark);
+}
+
+.tabs-container {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabs-header {
+    display: flex;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.tech-tab {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    font-size: 16px;
+    cursor: pointer;
+    transition: all var(--transition-medium);
+}
+
+.tech-tab:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.tech-tab.active {
+    background-color: rgba(110, 0, 255, 0.1);
+    color: var(--color-accent);
+    border-bottom: 2px solid var(--color-accent);
+}
+
+.tech-content {
+    display: none;
+    padding: 40px 0;
+}
+
+.tech-content.active {
+    display: block;
+}
+
+.tech-content-inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.tech-image {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.tech-image img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.tech-info {
+    flex: 2;
+    min-width: 300px;
+}
+
+.tech-info h2 {
+    font-family: var(--font-primary);
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.tech-subtitle {
+    color: var(--color-accent);
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.tech-description {
+    margin-bottom: 30px;
+}
+
+.tech-description p {
+    margin-bottom: 15px;
+    color: var(--color-text-secondary);
+}
+
+.tech-features, 
+.tech-considerations, 
+.tech-process, 
+.tech-materials {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+}
+
+.tech-features h3, 
+.tech-considerations h3, 
+.tech-process h3, 
+.tech-materials h3, 
+.tech-examples h3 {
+    font-family: var(--font-primary);
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--color-text);
+}
+
+.tech-features ul, 
+.tech-considerations ul, 
+.tech-materials ul {
+    list-style: none;
+}
+
+.tech-features li, 
+.tech-considerations li, 
+.tech-materials li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.tech-features li i, 
+.tech-considerations li i, 
+.tech-materials li i {
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.tech-features li .fa-check {
+    color: var(--color-accent);
+}
+
+.tech-considerations li .fa-exclamation {
+    color: #ff9800;
+}
+
+.tech-process ol {
+    padding-left: 20px;
+}
+
+.tech-process li {
+    margin-bottom: 10px;
+    color: var(--color-text-secondary);
+}
+
+.tech-process li strong {
+    color: var(--color-text);
+}
+
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.example-item {
+    text-align: center;
+}
+
+.example-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: transform var(--transition-fast);
+}
+
+.example-item:hover img {
+    transform: scale(1.05);
+}
+
+.example-item p {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+}
+
+/* Pricing Section */
+.pricing-section {
+    padding: 100px 0;
+    background-color: var(--color-dark-blue);
+}
+
+.pricing-disclaimer {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+}
+
+.pricing-disclaimer p {
+    color: var(--color-text-secondary);
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.pricing-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+}
+
+.pricing-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-card.featured {
+    border: 1px solid var(--color-accent);
+    box-shadow: 0 0 20px rgba(110, 0, 255, 0.2);
+}
+
+.pricing-header {
+    padding: 30px;
+    text-align: center;
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+}
+
+.pricing-header h3 {
+    font-family: var(--font-primary);
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.pricing-icon {
+    font-size: 40px;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+}
+
+.pricing-body {
+    padding: 30px;
+}
+
+.pricing-feature {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.pricing-feature:last-child {
+    border-bottom: none;
+}
+
+.pricing-feature h4 {
+    font-family: var(--font-primary);
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.pricing-feature p {
+    color: var(--color-accent);
+    font-weight: 700;
+}
+
+.pricing-details {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+}
+
+.pricing-details p {
+    color: var(--color-text-secondary);
+    font-size: 14px;
+}
+
+.pricing-footer {
+    padding: 20px 30px 30px;
+    text-align: center;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 100px 0;
+    background-color: var(--color-dark);
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 20px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.faq-question {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color var(--transition-fast);
+}
+
+.faq-question:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.faq-question h3 {
+    font-family: var(--font-primary);
+    font-size: 18px;
+    margin: 0;
+}
+
+.faq-toggle {
+    font-size: 16px;
+    color: var(--color-accent);
+    transition: transform var(--transition-fast);
+}
+
+.faq-item.active .faq-toggle {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    padding: 0 20px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--transition-medium), padding var(--transition-medium);
+}
+
+.faq-item.active .faq-answer {
+    padding: 0 20px 20px;
+    max-height: 1000px;
+}
+
+.faq-answer p {
+    color: var(--color-text-secondary);
+    margin-bottom: 15px;
+}
+
+.faq-answer ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+.faq-answer li {
+    margin-bottom: 10px;
+    color: var(--color-text-secondary);
+}
+
+.faq-answer strong {
+    color: var(--color-text);
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    .services-hero h1 {
+        font-size: 36px;
+    }
+    
+    .tech-content-inner {
+        flex-direction: column;
+    }
+    
+    .tech-image {
+        max-width: 100%;
+    }
+    
+    .tech-info h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-hero h1 {
+        font-size: 30px;
+    }
+    
+    .services-hero p {
+        font-size: 16px;
+    }
+    
+    .tabs-header {
+        flex-direction: column;
+    }
+    
+    .tech-tab {
+        padding: 15px;
+    }
+    
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .faq-question h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .services-hero h1 {
+        font-size: 24px;
+    }
+    
+    .examples-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

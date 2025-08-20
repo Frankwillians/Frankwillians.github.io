@@ -1,0 +1,149 @@
+{
+  "items": [
+    {
+      "id": "item_1749575924579",
+      "title": "Ravena",
+      "description": "🦇✨ “A escuridão é minha aliada!” ✨🦇\n\nApresentamos essa Action Figure exclusiva da Ravena, diretamente do universo de Os Jovens Titãs, produzida com todo o cuidado pela DarkStar3D_Studio! Essa peça de 25 cm de altura, impressa em PLA e pintada à mão, traz à vida cada detalhe sombrio e místico da poderosa feiticeira.",
+      "category": "FDM",
+      "tecnologia": "FDM",
+      "material": "PLA",
+      "altura": "25cm",
+      "acabamento": "pintura manual",
+      "base": "fdm",
+      "date_added": "2025-06-10T17:18:44.579Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/IXrQ7lp.jpeg",
+          "name": "WhatsApp Image 2025-04-01 at 23.43.35 (2).jpeg"
+        },
+        {
+          "data": "https://i.imgur.com/0TtRhF8.jpeg",
+          "name": "WhatsApp Image 2025-04-01 at 23.43.35 (1).jpeg"
+        },
+        {
+          "data": "https://i.imgur.com/6BtHqQj.jpeg",
+          "name": "WhatsApp Image 2025-04-01 at 23.43.35.jpeg"
+        }
+      ],
+      "thumbnailIndex": 2,
+      "featured": false
+    },
+    {
+      "id": "item_1749576047422",
+      "title": "Jill Valentine",
+      "description": "Jill Valentine é uma personagem icónica da série Resident Evil, conhecida pela sua coragem, habilidades de combate e dedicação na luta contra a Umbrella Corporation. Ela é uma ex-membro da STARS (Special Tactics And Rescue Service) e uma cofundadora da BSAA (Bioterrorism Security Assessment Alliance), trabalhando para proteger a humanidade de ameaças bioterroristas. ",
+      "category": "FDM",
+      "tecnologia": "FDM",
+      "material": "PLA",
+      "altura": "17cm",
+      "acabamento": "pintura manual",
+      "base": "fdm",
+      "date_added": "2025-06-10T17:20:47.422Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/wCejVmP.png",
+          "name": "Captura de tela 2025-06-10 134533.png"
+        },
+        {
+          "data": "https://i.imgur.com/DacL6it.png",
+          "name": "Captura de tela 2025-06-10 134613.png"
+        },
+        {
+          "data": "https://i.imgur.com/9Ugl0RA.png",
+          "name": "jill.png"
+        }
+      ],
+      "thumbnailIndex": 2,
+      "featured": false
+    },
+    {
+      "id": "item_1749576112465",
+      "title": "Pyramid Head",
+      "description": "“Nas trevas, o pesadelo ganha forma… ⚔️💀”\n\nDiretamente das profundezas de Silent Hill, essa imponente representação do Pyramid Head ganha vida com o estilo sombrio da DarkStar3D_Studio. Cada detalhe foi cuidadosamente pintado à mão, trazendo textura, profundidade e realismo à peça — do sangue escorrendo à atmosfera enferrujada e angustiante. As mãos emergindo das grades completam essa cena aterradora e memorável.",
+      "category": "FDM",
+      "tecnologia": "FDM",
+      "material": "PLA",
+      "altura": "25cm",
+      "acabamento": "pintura manual",
+      "base": "",
+      "date_added": "2025-06-10T17:21:52.465Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/J3K1Ky5.png",
+          "name": "pyramid.png"
+        },
+        {
+          "data": "https://i.imgur.com/42tQ6ZO.png",
+          "name": "pyramid2.png"
+        }
+      ],
+      "thumbnailIndex": 1,
+      "featured": false
+    },
+    {
+      "id": "item_1749576157983",
+      "title": "Singed",
+      "description": "🧪💀 \"Somente o louco sobrevive!\" 💀🧪\n\nApresentamos essa Action Figure exclusiva do Singed, diretamente do universo de League of Legends, produzida com todo o cuidado pela DarkStar3D_Studio! Essa peça de 14,5 cm de altura foi impressa em filamento PLA e pintada à mão, trazendo cada detalhe icônico do químico louco de Zaun à vida. Desde a armadura desgastada até sua icônica garrafa de veneno, tudo foi trabalhado com máxima precisão para um acabamento impressionante!",
+      "category": "FDM",
+      "tecnologia": "FDM",
+      "material": "PLA",
+      "altura": "14,5cm",
+      "acabamento": "pintura manual",
+      "base": "",
+      "date_added": "2025-06-10T17:22:37.983Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/X1Gng5k.png",
+          "name": "Captura de tela 2025-06-10 134428.png"
+        },
+        {
+          "data": "https://i.imgur.com/PfdwbKQ.png",
+          "name": "Captura de tela 2025-06-10 134451.png"
+        },
+        {
+          "data": "https://i.imgur.com/udp8WYY.png",
+          "name": "singed.png"
+        }
+      ],
+      "thumbnailIndex": 2,
+      "featured": false
+    },{
+
+      "id": "item_1750174495742",
+      "title": "Back to the future ",
+      "description": "Doc é Marty miniatura",
+      "category": "Resina",
+      "tecnologia": "Sla",
+      "material": "Resina",
+      "altura": "6,8cm",
+      "acabamento": "",
+      "base": "Fdm",
+      "date_added": "2025-06-17T15:34:55.742Z",
+      "images": [
+        {
+          "data": "https://i.imgur.com/ksZTJL8.jpeg",
+          "name": "IMG_0657.jpeg"
+        },
+        {
+          "data": "https://i.imgur.com/sEMCdfG.jpeg",
+          "name": "IMG_0656.jpeg"
+        },
+        {
+          "data": "https://i.imgur.com/Saz8v4i.jpeg",
+          "name": "IMG_0654.jpeg"
+        },
+        {
+          "data": "https://i.imgur.com/BUXJO3Y.jpeg",
+          "name": "IMG_0653.jpeg"
+        },
+        {
+          "data": "https://i.imgur.com/qVF78iJ.jpeg",
+          "name": "IMG_0659.jpeg"
+        }
+      ],
+      "thumbnailIndex": 0,
+      "featured": false
+    }
+  ],
+  "last_updated": "2025-06-10T17:23:22.374Z"
+}

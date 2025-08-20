@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços - DarkStar 3D Studio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="servicos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="cube">
+                <div class="face front"></div>
+                <div class="face back"></div>
+                <div class="face right"></div>
+                <div class="face left"></div>
+                <div class="face top"></div>
+                <div class="face bottom"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <span class="logo-text">DarkStar</span>
+                    <span class="logo-accent">3D Studio</span>
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="servicos.html" class="active">Serviços</a></li>
+                    <li><a href="portfolio.html">Portfólio</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Hero -->
+    <section class="services-hero">
+        <div class="container">
+            <div class="services-hero-content">
+                <h1>Nossos Serviços</h1>
+                <p>Conheça as tecnologias e processos que utilizamos para criar action figures de alta qualidade</p>
+            </div>
+        </div>
+        <div class="services-hero-overlay"></div>
+    </section>
+
+    <!-- Technology Tabs -->
+    <section class="tech-tabs">
+        <div class="container">
+            <div class="tabs-container">
+                <div class="tabs-header">
+                    <button class="tech-tab active" data-target="fdm-content">Impressão FDM</button>
+                    <button class="tech-tab" data-target="resin-content">Impressão em Resina</button>
+                    <button class="tech-tab" data-target="painting-content">Pintura Manual</button>
+                </div>
+                <div class="tabs-content">
+                    <!-- FDM Content -->
+                    <div id="fdm-content" class="tech-content active">
+                        <div class="tech-content-inner">
+                            <div class="tech-image">
+                                <img src="images/fdm-printing.jpg" alt="Impressão FDM">
+                            </div>
+                            <div class="tech-info">
+                                <h2>Impressão FDM (Filamento)</h2>
+                                <p class="tech-subtitle">Versatilidade e custo-benefício para suas action figures</p>
+                                
+                                <div class="tech-description">
+                                    <p>A tecnologia FDM (Fused Deposition Modeling) utiliza filamentos de plástico que são derretidos e depositados em camadas para criar objetos tridimensionais. Esta é uma das tecnologias mais acessíveis e versáteis para impressão 3D.</p>
+                                    
+                                    <p>Embora a impressão FDM possa apresentar marcas visíveis das camadas de impressão, nosso processo de acabamento e pintura é capaz de minimizar essas marcas, resultando em action figures de alta qualidade com excelente custo-benefício.</p>
+                                </div>
+                                
+                                <div class="tech-features">
+                                    <h3>Vantagens da Impressão FDM</h3>
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> <strong>Custo acessível</strong> - Ideal para peças maiores e projetos com orçamento limitado</li>
+                                        <li><i class="fas fa-check"></i> <strong>Resistência mecânica</strong> - Peças mais duráveis e resistentes a impactos</li>
+                                        <li><i class="fas fa-check"></i> <strong>Variedade de materiais</strong> - Diferentes tipos de filamentos com propriedades específicas</li>
+                                        <li><i class="fas fa-check"></i> <strong>Tamanhos maiores</strong> - Capacidade de imprimir peças de maior dimensão</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="tech-considerations">
+                                    <h3>Considerações</h3>
+                                    <ul>
+                                        <li><i class="fas fa-exclamation"></i> <strong>Marcas de camadas</strong> - Podem apresentar linhas visíveis que requerem pós-processamento</li>
+                                        <li><i class="fas fa-exclamation"></i> <strong>Detalhes limitados</strong> - Menor capacidade para detalhes muito pequenos</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="tech-process">
+                                    <h3>Nosso Processo FDM</h3>
+                                    <ol>
+                                        <li><strong>Preparação do modelo</strong> - Otimização para minimizar as marcas de camadas</li>
+                                        <li><strong>Impressão de alta qualidade</strong> - Utilizamos configurações precisas para maximizar detalhes</li>
+                                        <li><strong>Lixamento e preparação</strong> - Processo cuidadoso para suavizar as marcas de camadas</li>
+                                        <li><strong>Primer e base</strong> - Aplicação de camadas preparatórias para melhor aderência da tinta</li>
+                                        <li><strong>Pintura detalhada</strong> - Técnicas artísticas para dar vida ao personagem</li>
+                                        <li><strong>Acabamento final</strong> - Vernizes e selantes para proteção e efeito visual desejado</li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="tech-examples">
+                                    <h3>Exemplos de Projetos FDM</h3>
+                                    <div class="examples-grid">
+                                        <div class="example-item">
+                                            <img src="images/pyramid.png" alt="Pyramid Head - Silent Hill">
+                                            <p>Pyramid Head</p>
+                                        </div>
+                                        <div class="example-item">
+                                            <img src="images/ravena.png" alt="Ravena - Teen Titans">
+                                            <p>Ravena</p>
+                                        </div>
+                                        <div class="example-item">
+                                            <img src="images/singed.png" alt="Singed - League of Legends">
+                                            <p>Singed</p>
+                                        </div>
+                                    </div>
+                                    <a href="portfolio.html?filter=fdm" class="btn btn-secondary">Ver Mais Exemplos FDM</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resin Content -->
+                    <div id="resin-content" class="tech-content">
+                        <div class="tech-content-inner">
+                            <div class="tech-image">
+                                <img src="images/resin-printing.jpg" alt="Impressão em Resina">
+                            </div>
+                            <div class="tech-info">
+                                <h2>Impressão em Resina</h2>
+                                <p class="tech-subtitle">Detalhes finos e acabamento superior para colecionáveis premium</p>
+                                
+                                <div class="tech-description">
+                                    <p>A impressão em resina utiliza luz UV para curar resina líquida fotossensível camada por camada, resultando em peças com detalhes microscópicos e acabamento extremamente suave. Esta tecnologia é ideal para action figures que exigem detalhes finos e precisos.</p>
+                                    
+                                    <p>A principal vantagem da impressão em resina é a ausência de marcas de camadas visíveis, proporcionando uma superfície naturalmente lisa que requer menos pós-processamento antes da pintura.</p>
+                                </div>
+                                
+                                <div class="tech-features">
+                                    <h3>Vantagens da Impressão em Resina</h3>
+                                    <ul>
+                                        <li><i class="fas fa-check"></i> <strong>Alta resolução</strong> - Detalhes microscópicos e precisão excepcional</li>
+                                        <li><i class="fas fa-check"></i> <strong>Acabamento suave</strong> - Superfície lisa sem marcas de camadas visíveis</li>
+                                        <li><i class="fas fa-check"></i> <strong>Detalhes finos</strong> - Capacidade de reproduzir texturas e elementos minúsculos</li>
+                                        <li><i class="fas fa-check"></i> <strong>Qualidade visual superior</strong> - Ideal para colecionáveis de alta qualidade</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="tech-considerations">
+                                    <h3>Considerações</h3>
+                                    <ul>
+                                        <li><i class="fas fa-exclamation"></i> <strong>Custo elevado</strong> - Mais caro que FDM, especialmente para peças maiores</li>
+                                        <li><i class="fas fa-exclamation"></i> <strong>Fragilidade</strong> - Peças podem ser mais frágeis que as impressas em FDM</li>
+                                        <li><i class="fas fa-exclamation"></i> <strong>Tamanho limitado</strong> - Geralmente restrito a peças menores</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="tech-process">
+                                    <h3>Nosso Processo em Resina</h3>
+                                    <ol>
+                                        <li><strong>Preparação do modelo</strong> - Otimização para maximizar detalhes finos</li>
+                                        <li><strong>Impressão de alta precisão</strong> - Configurações para capturar cada detalhe do modelo</li>
+                                        <li><strong>Lavagem e cura</strong> - Remoção da resina não curada e finalização da cura UV</li>
+                                        <li><strong>Remoção de suportes</strong> - Processo cuidadoso para não danificar detalhes</li>
+                                        <li><strong>Preparação para pintura</strong> - Leve lixamento e aplicação de primer quando necessário</li>
+                                        <li><strong>Pintura detalhada</strong> - Técnicas artísticas para realçar os detalhes finos</li>
+                                        <li><strong>Acabamento final</strong> - Vernizes e selantes para proteção e efeito visual desejado</li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="tech-examples">
+                                    <h3>Exemplos de Projetos em Resina</h3>
+                                    <div class="examples-grid">
+                                        <div class="example-item">
+                                            <img src="images/project-placeholder-5.jpg" alt="Miniatura em Resina">
+                                            <p>Miniatura Detalhada</p>
+                                        </div>
+                                        <div class="example-item">
+                                            <img src="images/project-placeholder-6.jpg" alt="Busto em Resina">
+                                            <p>Busto Detalhado</p>
+                                        </div>
+                                    </div>
+                                    <a href="portfolio.html?filter=resina" class="btn btn-secondary">Ver Mais Exemplos em Resina</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Painting Content -->
+                    <div id="painting-content" class="tech-content">
+                        <div class="tech-content-inner">
+                            <div class="tech-image">
+                                <img src="images/painting-process.jpg" alt="Processo de Pintura">
+                            </div>
+                            <div class="tech-info">
+                                <h2>Pintura Manual</h2>
+                                <p class="tech-subtitle">O diferencial artístico que transforma impressões 3D em obras de arte</p>
+                                
+                                <div class="tech-description">
+                                    <p>A pintura manual é o que realmente diferencia nossas action figures. Independentemente da tecnologia de impressão utilizada, aplicamos técnicas artísticas profissionais para dar vida aos personagens, realçar detalhes e criar efeitos visuais impressionantes.</p>
+                                    
+                                    <p>Nosso processo de pintura é meticuloso e personalizado para cada projeto, considerando as características do personagem, o material da impressão e o resultado final desejado.</p>
+                                </div>
+                                
+                                <div class="tech-features">
+                                    <h3>Técnicas de Pintura</h3>
+                                    <ul>
+                                        <li><i class="fas fa-paint-brush"></i> <strong>Base coating</strong> - Camadas uniformes de cor base</li>
+                                        <li><i class="fas fa-paint-brush"></i> <strong>Dry brushing</strong> - Técnica para destacar relevos e texturas</li>
+                                        <li><i class="fas fa-paint-brush"></i> <strong>Washing</strong> - Aplicação de tintas diluídas para criar profundidade</li>
+                                        <li><i class="fas fa-paint-brush"></i> <strong>Layering</strong> - Camadas sucessivas para transições suaves de cor</li>
+                                        <li><i class="fas fa-paint-brush"></i> <strong>Glazing</strong> - Camadas transparentes para efeitos sutis</li>
+                                        <li><i class="fas fa-paint-brush"></i> <strong>Weathering</strong> - Técnicas de envelhecimento e desgaste</li>
+                                        <li><i class="fas fa-paint-brush"></i> <strong>Edge highlighting</strong> - Destaque de bordas para maior definição</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="tech-materials">
+                                    <h3>Materiais Utilizados</h3>
+                                    <ul>
+                                        <li><i class="fas fa-fill-drip"></i> <strong>Tintas acrílicas premium</strong> - Marcas especializadas para modelismo</li>
+                                        <li><i class="fas fa-fill-drip"></i> <strong>Primers específicos</strong> - Para diferentes tipos de materiais</li>
+                                        <li><i class="fas fa-fill-drip"></i> <strong>Washes e tintas de contraste</strong> - Para realçar detalhes</li>
+                                        <li><i class="fas fa-fill-drip"></i> <strong>Pigmentos metálicos</strong> - Para efeitos especiais</li>
+                                        <li><i class="fas fa-fill-drip"></i> <strong>Vernizes</strong> - Fosco, acetinado ou brilhante conforme necessário</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="tech-process">
+                                    <h3>Processo de Pintura</h3>
+                                    <ol>
+                                        <li><strong>Preparação da superfície</strong> - Lixamento e limpeza para melhor aderência</li>
+                                        <li><strong>Aplicação de primer</strong> - Base que revela imperfeições e prepara para a pintura</li>
+                                        <li><strong>Cores base</strong> - Aplicação das cores principais em camadas finas</li>
+                                        <li><strong>Sombreamento</strong> - Criação de profundidade com washes e sombreamento</li>
+                                        <li><strong>Detalhamento</strong> - Pintura precisa de pequenos elementos e detalhes</li>
+                                        <li><strong>Highlights</strong> - Realce de pontos de luz e bordas</li>
+                                        <li><strong>Efeitos especiais</strong> - Metálicos, brilhos, texturas específicas</li>
+                                        <li><strong>Acabamento final</strong> - Aplicação de verniz protetor com o acabamento desejado</li>
+                                    </ol>
+                                </div>
+                                
+                                <div class="tech-examples">
+                                    <h3>Exemplos de Pintura</h3>
+                                    <div class="examples-grid">
+                                        <div class="example-item">
+                                            <img src="images/project-placeholder-1.jpg" alt="Pyramid Head - Pintura">
+                                            <p>Efeitos de Envelhecimento</p>
+                                        </div>
+                                        <div class="example-item">
+                                            <img src="images/project-placeholder-2.jpg" alt="Ravena - Pintura">
+                                            <p>Efeitos Metálicos</p>
+                                        </div>
+                                        <div class="example-item">
+                                            <img src="images/project-placeholder-4.jpg" alt="Jill Valentine - Pintura">
+                                            <p>Detalhes Realistas</p>
+                                        </div>
+                                    </div>
+                                    <a href="portfolio.html" class="btn btn-secondary">Ver Mais Exemplos de Pintura</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Investimento</h2>
+                <p>Valores aproximados para referência</p>
+            </div>
+            
+            <div class="pricing-disclaimer">
+                <p>Os valores abaixo são apenas referências iniciais. Cada projeto é único e recebe um orçamento personalizado baseado em diversos fatores como complexidade, tamanho, detalhes e acabamento desejado.</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Action Figures FDM</h3>
+                        <div class="pricing-icon">
+                            <i class="fas fa-cubes"></i>
+                        </div>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="pricing-feature">
+                            <h4>Pequeno (até 15cm)</h4>
+                            <p>A partir de R$ XXX</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <h4>Médio (15-25cm)</h4>
+                            <p>A partir de R$ XXX</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <h4>Grande (acima de 25cm)</h4>
+                            <p>A partir de R$ XXX</p>
+                        </div>
+                        <div class="pricing-details">
+                            <p>Inclui impressão FDM, pós-processamento básico e pintura padrão.</p>
+                        </div>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="contato.html" class="btn btn-secondary">Solicitar Orçamento</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3>Action Figures Resina</h3>
+                        <div class="pricing-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="pricing-feature">
+                            <h4>Pequeno (até 10cm)</h4>
+                            <p>A partir de R$ XXX</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <h4>Médio (10-20cm)</h4>
+                            <p>A partir de R$ XXX</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <h4>Grande (acima de 20cm)</h4>
+                            <p>A partir de R$ XXX</p>
+                        </div>
+                        <div class="pricing-details">
+                            <p>Inclui impressão em resina, pós-processamento e pintura detalhada.</p>
+                        </div>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="contato.html" class="btn btn-primary">Solicitar Orçamento</a>
+                    </div>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Serviços Adicionais</h3>
+                        <div class="pricing-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                    </div>
+                    <div class="pricing-body">
+                        <div class="pricing-feature">
+                            <h4>Pintura Premium</h4>
+                            <p>+ R$ XXX</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <h4>Base Personalizada</h4>
+                            <p>A partir de R$ XXX</p>
+                        </div>
+                        <div class="pricing-feature">
+                            <h4>Efeitos Especiais</h4>
+                            <p>A partir de R$ XXX</p>
+                        </div>
+                        <div class="pricing-details">
+                            <p>Serviços complementares para elevar ainda mais a qualidade do seu projeto.</p>
+                        </div>
+                    </div>
+                    <div class="pricing-footer">
+                        <a href="contato.html" class="btn btn-secondary">Solicitar Orçamento</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Perguntas Frequentes</h2>
+                <p>Dúvidas comuns sobre nossos serviços</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Qual tecnologia é melhor para minha action figure?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>A escolha entre FDM e resina depende de vários fatores:</p>
+                        <ul>
+                            <li><strong>FDM é recomendado quando:</strong> Você precisa de uma peça maior, mais resistente ou com melhor custo-benefício, e pode aceitar um acabamento que, embora excelente após nossa pintura, pode não ser tão refinado quanto a resina.</li>
+                            <li><strong>Resina é recomendada quando:</strong> Você precisa de detalhes extremamente finos, acabamento perfeito e está disposto a investir um pouco mais por essa qualidade superior.</li>
+                        </ul>
+                        <p>Durante o orçamento, podemos discutir as opções e recomendar a melhor tecnologia para seu projeto específico.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Quanto tempo leva para produzir uma action figure?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>O tempo de produção varia conforme a complexidade, tamanho e acabamento desejado:</p>
+                        <ul>
+                            <li><strong>Projetos simples:</strong> 1-2 semanas</li>
+                            <li><strong>Projetos médios:</strong> 2-3 semanas</li>
+                            <li><strong>Projetos complexos:</strong> 3-4 semanas ou mais</li>
+                        </ul>
+                        <p>Estes prazos incluem impressão, pós-processamento, pintura e acabamento. Fornecemos uma estimativa mais precisa durante o orçamento.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Vocês imprimem modelos que eu fornecer?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, podemos imprimir e pintar modelos 3D fornecidos por você, desde que:</p>
+                        <ul>
+                            <li>O modelo esteja em formato adequado para impressão (STL, OBJ, etc.)</li>
+                            <li>Você tenha os direitos de uso do modelo</li>
+                            <li>O modelo seja tecnicamente viável para impressão</li>
+                        </ul>
+                        <p>Se necessário, podemos fazer ajustes no modelo para otimizá-lo para impressão, mediante acordo prévio.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Como é feito o envio das peças?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Todas as nossas peças são cuidadosamente embaladas para garantir que cheguem em perfeitas condições:</p>
+                        <ul>
+                            <li>Utilizamos materiais de proteção como plástico bolha, espuma e caixas reforçadas</li>
+                            <li>Enviamos por transportadoras confiáveis com opção de rastreamento</li>
+                            <li>O custo de envio é calculado separadamente com base no tamanho, peso e destino</li>
+                            <li>Oferecemos seguro opcional para peças de maior valor</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Vocês oferecem garantia?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sim, oferecemos garantia de qualidade em todos os nossos trabalhos:</p>
+                        <ul>
+                            <li>Garantimos que a peça será entregue conforme as especificações acordadas</li>
+                            <li>Em caso de defeitos de fabricação, oferecemos reparo ou substituição</li>
+                            <li>A garantia não cobre danos causados por mau uso, quedas ou exposição a condições inadequadas</li>
+                            <li>Recomendamos cuidados específicos para preservar a qualidade da peça ao longo do tempo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Pronto para dar vida ao seu personagem favorito?</h2>
+                <p>Entre em contato conosco para discutir seu projeto e obter um orçamento personalizado.</p>
+                <a href="contato.html" class="btn btn-primary">Solicitar Orçamento</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">DarkStar</span>
+                    <span class="logo-accent">3D Studio</span>
+                    <p>Impressão 3D em FDM e Resina com Acabamento Artístico</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Links Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                        <li><a href="portfolio.html">Portfólio</a></li>
+                        <li><a href="sobre.html">Sobre</a></li>
+                        <li><a href="contato.html">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contato</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contato@darkstar3d.com.br</li>
+                        <li><i class="fas fa-phone"></i> (00) 00000-0000</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/darkstar3d_studio/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DarkStar 3D Studio. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/servicos.js"></script>
+</body>
+</html>
